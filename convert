@@ -1,0 +1,6 @@
+#! /bin/sh
+
+IN=$1
+OUT=${1%%applet}sgf
+
+./convert.py < $IN > $OUT
