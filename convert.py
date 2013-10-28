@@ -84,18 +84,22 @@ class Convert:
     
   def convert_start(self):
     old = self.find_start()
+    if not old:
+      return  ""
     stones = { 'B': [], 'W': [] }
     matches = re.findall('(B|W)(\[[a-z][a-z]\])', old)
     for color, pos in matches:
        stones[color].append(pos)
-    return "AW%sAB%s" % (u"".join(stones['B']), u"".join(stones['W']))
+    return "AW%sAB%s" % (u"".join(stones['W']), u"".join(stones['B']))
 
   def convert_variants(self):
     old = self.find_sequence()
-    parser = ParseSequence(old)
-    parser.parse()
-    print parser.variants
-    
+    if old:
+      parser = ParseSequence(old)
+      parser.parse()
+      self.sequence = parser.variants
+    else:
+      self.sequence = []
 
   def find_name(self):
     return self.find('<param name=problem value=([^>]+)>')
@@ -113,15 +117,32 @@ class Convert:
 
   def output(self):
     print "(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]"
-    print self.start
-
+    sys.stdout.write(self.start)
+    for node in self.sequence:
+      self.print_node(node)
     print ")"
+    
+  def print_node(self, node):
+    if isinstance(node, list):
+      sys.stdout.write("\n(")
+      for var in node:
+        self.print_node(var)
+      sys.stdout.write(")")
+    elif isinstance(node, basestring):
+      sys.stdout.write("C[%s]" % node)
+    else:
+      color, pos = node
+      sys.stdout.write(";%s[%s]" % (color, self.convert_position(pos)))
+
+  def convert_position(self, pos):
+    if pos == 'zz':
+      return 'tt'
+    return pos
 
 
 if __name__ == "__main__":
   old_format = sys.stdin.read()
   old_format = old_format.replace('\n', '')
-  print old_format
   conv = Convert(old_format)
   conv.convert()
 
