@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<section>
+    <h3>Tutaj z pewnością możesz uczyć się grać w Go, ponieważ właśnie grasz.</h3>
+
+    <p>Zanim zaczniesz, zapamiętaj trzy podstawowe zasady:</p>
+
+    <ul>
+        <li>Dwaj gracze (czarny i biały) wykonują ruchy kładąc naprzemiennie po jednym kamieniu na planszy.</li>
+        <li>Kamienie muszą być kładzione na przecięciu pionowych i poziomych linii.</li>
+        <li>Gdy kamień jest położony, nie mozna go przemieścić, jedynie w określonych warunkach usunąć.</li>
+    </ul>
+
+    <p>
+        {% assign lesson = site.lessons.first %}
+        <a href="{{ lesson.url | prepend: site.baseurl }}">Start - {{ lesson.title }}</a>
+    </p>
+</section>
+
+<section>
+    <ul>
+        <li>wersja oryginalna: Hiroki Mori (<a href="http://playgo.to">http://playgo.to</a>)</li>
+        <li>tłumaczenie: Andrzej Bojar</li>
+        <li>opracowanie: Stowarzyszenie Gier Honte (<a href="http://honte.pl">http://honte.pl</a>)</li>
+    </ul>
+</section>

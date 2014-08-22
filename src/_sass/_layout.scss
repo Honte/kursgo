@@ -1,0 +1,151 @@
+$min_page_size: 1100px;
+$min_side_size: 300px;
+$min_content_size: $min_page_size - $min_side_size;
+
+
+// GENERAL
+body {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  color: $text-color;
+  width: 100%;
+}
+
+a {
+  color: #6c9922;
+  padding: 5px;
+}
+
+a:hover {
+  color: #fff;
+  background-color: #6c9922;
+  padding: 5px;
+}
+
+.wrapper {
+  margin: 20px auto;
+  min-width: $min_page_size;
+  width: 60%;
+}
+
+// HEADER
+header {
+  margin-bottom: 20px;
+
+  h1 {
+    text-align: center;
+    text-shadow: 1px 1px 1px #ccc;
+  }
+
+  a {
+    text-decoration: none;
+    color: $text-color;
+    font-size: 2em;
+  }
+}
+
+// SIDE MENU
+aside {
+  float: left;
+  width: $min_side_size / $min_page_size * 100%;
+  min-width: $min_side_size;
+
+  nav {
+    padding: 20px;
+    background: #f1f1f1;
+    border: 1px solid #e1e1e1;
+    border-radius: 2px;
+    margin: 20px 0 20px 20px;
+  }
+
+  a {
+    display: block;
+    padding: 5px;
+  }
+
+  p {
+    margin: 0 0 5px 31px;
+  }
+
+  ol {
+    list-style-type: decimal-leading-zero;
+
+    li {
+      margin: 5px 0 0 30px;
+    }
+
+
+  }
+}
+
+
+// MAIN CONTENT
+article {
+  float: right;
+  width: $min_content_size / $min_page_size * 100%;
+  min-width: $min_content_size;
+}
+
+section {
+  padding: 20px;
+  background: #f1f1f1;
+  border: 1px solid #e1e1e1;
+  border-radius: 2px;
+  margin: 20px;
+  line-height: 1.5em;
+  overflow: hidden;
+
+  h3 {
+    color: #222;
+    font-size: 1.2em;
+  }
+
+  ul {
+    margin-top: -5px;
+    list-style: disc;
+
+    li {
+      margin-left: 20px;
+    }
+  }
+
+  p {
+    margin: 10px 0;
+  }
+}
+
+section.problem {
+  position: relative;
+
+  .board {
+    margin: 10px 10px 10px 0;
+    width: 50%;
+    float: left;
+  }
+
+  .status {
+    font-weight: bold;
+    float: right;
+    width: 45%;
+    position: absolute;
+    bottom: 50px;
+    right: 10px;
+  }
+
+  .success, .fail {
+    cursor: pointer;
+  }
+
+  .success {
+    color: #6c9922;
+  }
+
+  .fail {
+    color: #900;
+  }
+
+  p {
+    float: right;
+    width: 45%;
+  }
+}
