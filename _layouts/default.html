@@ -7,16 +7,18 @@
     <div class="wrapper">
 
     <header>
-        <h1><a href="{{ "/" | prepend: site.baseurl }}">Interaktywny Kurs Go</a></h1>
+        <h1><a href="/">Interaktywny Kurs Go</a></h1>
+
+        {% if page.title %}<h2>{{ page.title }}</h2>{% endif %}
     </header>
 
     <aside>
         <nav>
-            <p><a href="{{ "/" | prepend: site.baseurl }}">Wprowadzenie</a></p>
+            <p><a href="/">Wprowadzenie</a></p>
             <ol>
                 {% for lesson in site.lessons %}
                     {% if lesson.title %}
-                    <li><a href="{{ lesson.url | prepend: site.baseurl }}">{{ lesson.title }}</a></li>
+                    <li><a href="{{ lesson.url }}">{{ lesson.title }}</a></li>
                     {% endif %}
                 {% endfor %}
             </ol>

@@ -9,16 +9,10 @@ url: "http://kursgo.pl" # the base hostname & protocol for your site
 markdown: kramdown
 port: 8000
 
-collections:
-  lessons:
-    output: true
-    permalink: /:path/
+# lessons placeholder
+pages: ./_lessons
 
-defaults:
--
-  scope:
-    path: ""
-  values:
-    layout: "default"
+# default layout for lessons
+layout: "default"
 
-exclude: [ imprort-utils ]
+exclude: [ import-utils ]

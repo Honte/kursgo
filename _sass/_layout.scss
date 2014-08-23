@@ -9,6 +9,7 @@ body {
   font-size: $base-font-size;
   color: $text-color;
   width: 100%;
+  background: #f1f1f1;
 }
 
 a {
@@ -30,22 +31,34 @@ a:hover {
 
 // HEADER
 header {
-  margin-bottom: 20px;
 
-  h1 {
+  h1, h2 {
+    font-size: 1.7em;
+    color: #828282;
     text-align: center;
-    text-shadow: 1px 1px 1px #ccc;
   }
 
   a {
     text-decoration: none;
-    color: $text-color;
-    font-size: 2em;
+    color: #828282;
+  }
+
+  h1 {
+    float: left;
+    width: $min_side_size / $min_page_size * 100%;
+    min-width: $min_side_size;
+  }
+
+  h2 {
+    float: right;
+    width: $min_content_size / $min_page_size * 100%;
+    min-width: $min_content_size;
   }
 }
 
 // SIDE MENU
 aside {
+  clear: both;
   float: left;
   width: $min_side_size / $min_page_size * 100%;
   min-width: $min_side_size;
@@ -53,9 +66,11 @@ aside {
   nav {
     padding: 20px;
     background: #f1f1f1;
+    background: #fff;
     border: 1px solid #e1e1e1;
     border-radius: 2px;
     margin: 20px 0 20px 20px;
+    box-shadow: 0 0 10px 1px rgba(0,0,0,0.1);
   }
 
   a {
@@ -88,12 +103,13 @@ article {
 
 section {
   padding: 20px;
-  background: #f1f1f1;
+  background: #fff;
   border: 1px solid #e1e1e1;
   border-radius: 2px;
   margin: 20px;
   line-height: 1.5em;
   overflow: hidden;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,0.1);
 
   h3 {
     color: #222;
@@ -114,7 +130,8 @@ section {
   }
 }
 
-section.problem {
+section.problem,
+section.diagram {
   position: relative;
 
   .board {

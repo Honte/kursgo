@@ -8,6 +8,21 @@
             FAIL: 'fail'
         };
 
+    function decorateDiagram(section) {
+        var board = document.createElement('div');
+
+        board.classList.add(CLASSES.BOARD);
+        section.appendChild(board);
+
+        new WGo.BasicPlayer(board, {
+            sgfFile: section.getAttribute('data-diagram'),
+            markLastMove: false,
+            enableKeys: false,
+            enableWheel: false,
+            layout: {top: [], right: [], left: [], bottom: []}
+        });
+    }
+
     function decorateProblem(section) {
         var board = document.createElement('div'),
             status = document.createElement('div'),
@@ -98,6 +113,8 @@
         Array.prototype.slice.call(sections).forEach(function (section) {
             if (section.hasAttribute('data-problem')) {
                 decorateProblem(section);
+            } else if (section.hasAttribute('data-diagram')) {
+                decorateDiagram(section);
             }
         });
     });
