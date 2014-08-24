@@ -12,18 +12,7 @@
         {% if page.title %}<h2>{{ page.title }}</h2>{% endif %}
     </header>
 
-    <aside>
-        <nav>
-            <p><a href="/">Wprowadzenie</a></p>
-            <ol>
-                {% for lesson in site.lessons %}
-                    {% if lesson.title %}
-                    <li><a href="{{ lesson.url }}">{{ lesson.title }}</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ol>
-        </nav>
-    </aside>
+    {% include side.html %}
 
     <article id="content">
         {{ content }}

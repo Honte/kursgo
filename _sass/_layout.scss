@@ -69,13 +69,17 @@ aside {
     background: #fff;
     border: 1px solid #e1e1e1;
     border-radius: 2px;
-    margin: 20px 0 20px 20px;
-    box-shadow: 0 0 10px 1px rgba(0,0,0,0.1);
+    margin: 10px 0 10px 20px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
   }
 
   a {
     display: block;
     padding: 5px;
+  }
+
+  a.active {
+    font-weight: bold
   }
 
   p {
@@ -88,7 +92,6 @@ aside {
     li {
       margin: 5px 0 0 30px;
     }
-
 
   }
 }
@@ -106,10 +109,10 @@ section {
   background: #fff;
   border: 1px solid #e1e1e1;
   border-radius: 2px;
-  margin: 20px;
+  margin: 10px 20px;
   line-height: 1.5em;
   overflow: hidden;
-  box-shadow: 0 0 10px 1px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
 
   h3 {
     color: #222;
@@ -136,16 +139,16 @@ section.diagram {
 
   .board {
     margin: 10px 10px 10px 0;
-    width: 50%;
+    width: 40%;
     float: left;
   }
 
   .status {
     font-weight: bold;
     float: right;
-    width: 45%;
+    width: 55%;
     position: absolute;
-    bottom: 50px;
+    bottom: 40px;
     right: 10px;
   }
 
@@ -163,6 +166,39 @@ section.diagram {
 
   p {
     float: right;
-    width: 45%;
+    width: 55%;
+  }
+}
+
+section.navigation {
+  position: relative;
+
+  .prev_lesson {
+    float: left;
+  }
+
+  .next_lesson {
+    float: right;
+  }
+
+  .prev_lesson a:before {
+    content: '\00ab';
+    padding-right: 3px;
+  }
+
+  .next_lesson a:after {
+    content: '\00bb';
+    padding-left: 3px;
+  }
+
+  select {
+    width: 300px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    margin-left: -150px;
+    padding: 10px;
+    border: none;
+    background: #eee;
   }
 }

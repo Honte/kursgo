@@ -13,6 +13,6 @@ port: 8000
 pages: ./_lessons
 
 # default layout for lessons
-layout: "default"
+layout: "lesson"
 
 exclude: [ import-utils ]

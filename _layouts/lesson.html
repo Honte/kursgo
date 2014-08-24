@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    <div class="wrapper">
+
+    <header>
+        <h1><a href="/">Interaktywny Kurs Go</a></h1>
+
+        {% if page.title %}<h2>{{ page.title }}</h2>{% endif %}
+    </header>
+
+    {% include side.html %}
+
+    <article id="content">
+        {{ content }}
+
+        <section class="navigation">
+            {% if page.prev_lesson %}
+                <p class="prev_lesson">
+                    {% lesson_link page.prev_lesson %}
+                </p>
+            {% endif %}
+
+            <select>
+                {% for lesson in site.lessons %}
+                    <option value="{{ lesson.url }}">{{ lesson.title }}</option>
+                {% endfor %}
+            </select>
+
+            {% if page.next_lesson %}
+                <p class="next_lesson">
+                    {% lesson_link page.next_lesson %}
+                </p>
+            {% endif %}
+        </section>
+    </article>
+
+    </div>
+  </body>
+</html>
