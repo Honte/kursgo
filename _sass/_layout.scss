@@ -1,4 +1,4 @@
-$min_page_size: 1100px;
+$min_page_size: 1000px;
 $min_side_size: 300px;
 $min_content_size: $min_page_size - $min_side_size;
 
@@ -10,6 +10,7 @@ body {
   color: $text-color;
   width: 100%;
   background: #f1f1f1;
+  overflow-y: scroll;
 }
 
 a {
@@ -20,39 +21,22 @@ a {
 a:hover {
   color: #fff;
   background-color: #6c9922;
-  padding: 5px;
 }
 
 .wrapper {
   margin: 20px auto;
-  min-width: $min_page_size;
-  width: 60%;
+  min-width: 400px;
+  max-width: 1200px;
+  width: 90%;
 }
 
 // HEADER
 header {
-
-  h1, h2 {
-    font-size: 1.7em;
+  h1 {
+    font-size: 1.2em;
     color: #828282;
     text-align: center;
-  }
-
-  a {
-    text-decoration: none;
-    color: #828282;
-  }
-
-  h1 {
-    float: left;
-    width: $min_side_size / $min_page_size * 100%;
-    min-width: $min_side_size;
-  }
-
-  h2 {
-    float: right;
-    width: $min_content_size / $min_page_size * 100%;
-    min-width: $min_content_size;
+    text-transform: uppercase;
   }
 }
 
@@ -61,7 +45,6 @@ aside {
   clear: both;
   float: left;
   width: $min_side_size / $min_page_size * 100%;
-  min-width: $min_side_size;
 
   nav {
     padding: 20px;
@@ -101,7 +84,6 @@ aside {
 article {
   float: right;
   width: $min_content_size / $min_page_size * 100%;
-  min-width: $min_content_size;
 }
 
 section {
@@ -109,7 +91,7 @@ section {
   background: #fff;
   border: 1px solid #e1e1e1;
   border-radius: 2px;
-  margin: 10px 20px;
+  margin: 10px;
   line-height: 1.5em;
   overflow: hidden;
   box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
@@ -133,23 +115,27 @@ section {
   }
 }
 
-section.problem,
-section.diagram {
+.title {
+  h2 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+}
+
+.problem,
+.diagram {
   position: relative;
 
   .board {
     margin: 10px 10px 10px 0;
-    width: 40%;
+    width: 45%;
     float: left;
   }
 
   .status {
     font-weight: bold;
     float: right;
-    width: 55%;
-    position: absolute;
-    bottom: 40px;
-    right: 10px;
+    width: 50%;
   }
 
   .success, .fail {
@@ -166,12 +152,15 @@ section.diagram {
 
   p {
     float: right;
-    width: 55%;
+    width: 50%;
   }
 }
 
-section.navigation {
-  position: relative;
+.top-navigation,
+.bottom-navigation {
+  p {
+    margin: 0;
+  }
 
   .prev_lesson {
     float: left;
@@ -183,22 +172,98 @@ section.navigation {
 
   .prev_lesson a:before {
     content: '\00ab';
-    padding-right: 3px;
   }
 
   .next_lesson a:after {
     content: '\00bb';
-    padding-left: 3px;
   }
 
   select {
-    width: 300px;
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    margin-left: -150px;
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
     padding: 10px;
     border: none;
     background: #eee;
+    cursor: pointer;
+
+    option {
+      text-align: center;
+      padding: 10px 5px;
+      cursor: pointer;
+    }
+
+    option[selected] {
+      font-weight: bold;
+      color: #6c9922;
+    }
+  }
+}
+
+.top-navigation {
+  display: none;
+  select {
+    font-size: 20px;
+  }
+}
+
+@include media-query(1000px) {
+    .wrapper {
+      min-width: 360px;
+      max-width: 900px;
+      width: 95%;
+    }
+
+    article {
+      width: 100%;
+      float: none;
+    }
+
+    aside {
+      display: none;
+    }
+
+    .title {
+      display: none;
+    }
+
+    .top-navigation {
+      display: block;
+    }
+}
+
+@include media-query(600px) {
+  .problem {
+    p {
+      float: none;
+      width: 100%
+    }
+
+    .board {
+      float: none;
+      width: 80%;
+      margin: 10px auto;
+    }
+
+    .status {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@include media-query(500px) {
+  .diagram,
+  .problem {
+    .board {
+      float: none;
+      width: 100%;
+    }
+
+    p {
+      float: none;
+      width: 100%
+    }
   }
 }

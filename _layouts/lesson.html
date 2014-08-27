@@ -7,35 +7,48 @@
     <div class="wrapper">
 
     <header>
-        <h1><a href="/">Interaktywny Kurs Go</a></h1>
-
-        {% if page.title %}<h2>{{ page.title }}</h2>{% endif %}
+        <h1>Interaktywny Kurs Go</h1>
     </header>
 
     {% include side.html %}
 
     <article id="content">
-        {{ content }}
+        {% if page.title %}
+        <section class="title">
+            <h2>{{ page.title }}</h2>
+        </section>
+        {% endif %}
 
-        <section class="navigation">
-            {% if page.prev_lesson %}
-                <p class="prev_lesson">
-                    {% lesson_link page.prev_lesson %}
-                </p>
-            {% endif %}
-
-            <select>
+        <section class="top-navigation">
+            <select class="lesson-selector">
+                <option value="/">Wprowadzenie</option>
+                {% assign i = 1 %}
                 {% for lesson in site.lessons %}
-                    <option value="{{ lesson.url }}">{{ lesson.title }}</option>
+                <option value="{{ lesson.url | replace: "index.html", "" }}"{% if lesson.title == page.title %} selected{% endif %}>{{ i }}. {{ lesson.title }}</option>
+                {% assign i = i | plus: 1 %}
                 {% endfor %}
             </select>
+        </section>
+
+        {{ content }}
+
+        {% if page.prev_lesson or page.next_lesson %}
+        <section class="bottom-navigation">
+            <p class="prev_lesson">
+                {% if page.prev_lesson %}
+                    {% lesson_button page.prev_lesson Poprzednia lekcja %}
+                {% else %}
+                    <a href="/" class="button">Wprowadzenie</a>
+                {% endif %}
+            </p>
 
             {% if page.next_lesson %}
-                <p class="next_lesson">
-                    {% lesson_link page.next_lesson %}
-                </p>
+            <p class="next_lesson">
+                {% lesson_button page.next_lesson Nastepna lekcja %}
+            </p>
             {% endif %}
         </section>
+        {% endif %}
     </article>
 
     </div>

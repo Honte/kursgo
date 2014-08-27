@@ -117,5 +117,18 @@
                 decorateDiagram(section);
             }
         });
+
+
+        var selects = document.getElementsByClassName('lesson-selector');
+
+        Array.prototype.slice.call(selects).forEach(function (el) {
+           el.onchange = function (e) {
+               var option = el.options[el.selectedIndex];
+
+               if (!option.hasAttribute('selected')) {
+                   document.location = document.location.origin + option.value;
+               }
+           }
+        });
     });
 }(window));

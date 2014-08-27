@@ -4,13 +4,18 @@ module Jekyll
 
   class LessonLinkTag < Liquid::Tag
 
-    def initialize(tag_name, text, tokens)
+    def initialize(tag_name, markup, tokens)
       super
-      @variable = text.strip
+      @markup = markup.strip
+    end
+
+    def render_link(url, cls, anchor)
+        "<a href=\"#{url}\" class=\"#{cls}\">#{anchor}</a>"
     end
 
     def render(context)
-        selector = @variable.split "."
+        markup = @markup.split " "
+        selector = markup.shift.split "."
 
         lesson = context
         while (selector.count > 0) do
@@ -20,15 +25,23 @@ module Jekyll
         current_lesson = context["page"]
 
         url = lesson["url"].sub("index.html", "")
+
+        anchor = markup.join " "
+        anchor = lesson["title"] if anchor.empty?
+
         cls = ""
+        cls = cls + "active" if current_lesson["title"] == lesson["title"]
 
-        if current_lesson["title"] == lesson["title"]
-            cls = " class=\"active\""
-        end
-
-        "<a href=\"#{url}\"#{cls}>#{lesson["title"]}</a>"
+        render_link url, cls, anchor
     end
   end
+
+  class LessonButtonTag < LessonLinkTag
+      def render_link(url, cls, anchor)
+          super(url, ["button", cls].join(" "), anchor)
+      end
+    end
 end
 
 Liquid::Template.register_tag('lesson_link', Jekyll::LessonLinkTag)
+Liquid::Template.register_tag('lesson_button', Jekyll::LessonButtonTag)

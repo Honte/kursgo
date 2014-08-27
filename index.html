@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: lesson
 ---
 <section>
     <h3>Tutaj z pewnością możesz uczyć się grać w Go, ponieważ właśnie grasz.</h3>
@@ -11,11 +11,6 @@ layout: default
         <li>Kamienie muszą być kładzione na przecięciu pionowych i poziomych linii.</li>
         <li>Gdy kamień jest położony, nie mozna go przemieścić, jedynie w określonych warunkach usunąć.</li>
     </ul>
-
-    <p>
-        {% assign lesson = site.lessons.first %}
-        <a href="{{ lesson.url | prepend: site.baseurl }}">Start - {{ lesson.title }}</a>
-    </p>
 </section>
 
 <section>
@@ -24,4 +19,11 @@ layout: default
         <li>tłumaczenie: Andrzej Bojar</li>
         <li>opracowanie: Stowarzyszenie Gier Honte (<a href="http://honte.pl">http://honte.pl</a>)</li>
     </ul>
+</section>
+
+<section class="bottom-navigation">
+    <p class="next_lesson">
+        {% assign lesson = site.lessons.first %}
+        {% lesson_button lesson Pierwsza lekcja %}
+    </p>
 </section>
