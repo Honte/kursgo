@@ -2,21 +2,45 @@
 #
 module Jekyll
 
-  class RenderProblemTag < Liquid::Tag
-
-    def initialize(tag_name, text, tokens)
+  class SgfBlock < Liquid::Block
+    def initialize(tag_name, sgf, tokens)
       super
-      @text = text.strip
+      @sgf = sgf.strip
     end
 
-    def render(context)
+    def read_sgf(context)
       site = context.registers[:site]
-      path = File.join site.source, 'problemy-dla-50-kyu', @text
-      return "<div>Sgf #{@text} not found.</div>" unless File.exists? path
-      sgf = CGI::escapeHTML File.read(path)
-      "<div class=\"problem\" data-sgf=\"#{sgf}\">Jeżeli chcesz rozwiązywać problemy interaktywnie, musisz włączyć JavaScript.</div>"
+      page = context.registers[:page]
+      path = File.join site.source, site.config["pages"], page["dir"], @sgf
+
+      return "Sgf #{@sgf} not found" unless File.exists? path
+
+      CGI::escapeHTML File.open(path, "r:UTF-8", &:read)
+    end
+  end
+
+  class ProblemBlock < SgfBlock
+    def render(context)
+      "<div class=\"sgf problem\" data-sgf=\"#{read_sgf(context)}\">
+        <p>#{super}</p>
+        <div class=\"board\">Jeżeli chcesz rozwiązywać problemy interaktywnie, musisz włączyć JavaScript.</div>
+        <div class=\"status\">
+            <p>Twój ruch.</p>
+            <a class=\"button\">Jeszcze raz</a>
+        </div>
+      </div>"
+    end
+  end
+
+  class DiagramBlock < SgfBlock
+    def render(context)
+      "<div class=\"sgf diagram\" data-sgf=\"#{read_sgf(context)}\">
+        <div class=\"board\">Jeżeli chcesz przeglądać diagramy, musisz włączyć JavaScript.</div>
+        <p>#{super}</p>
+      </div>"
     end
   end
 end
 
-Liquid::Template.register_tag('problem', Jekyll::RenderProblemTag)
+Liquid::Template.register_tag('problem', Jekyll::ProblemBlock)
+Liquid::Template.register_tag('diagram', Jekyll::DiagramBlock)

@@ -36,7 +36,7 @@
         <section class="bottom-navigation">
             <p class="prev_lesson">
                 {% if page.prev_lesson %}
-                    {% lesson_button page.prev_lesson Poprzednia lekcja %}
+                    {% lesson_button page.prev_lesson Wstecz %}
                 {% else %}
                     <a href="/" class="button">Wprowadzenie</a>
                 {% endif %}
@@ -44,7 +44,7 @@
 
             {% if page.next_lesson %}
             <p class="next_lesson">
-                {% lesson_button page.next_lesson Nastepna lekcja %}
+                {% lesson_button page.next_lesson Dalej %}
             </p>
             {% endif %}
         </section>

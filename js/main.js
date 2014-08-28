@@ -8,31 +8,32 @@
             FAIL: 'fail'
         };
 
-    function decorateDiagram(section) {
-        var board = document.createElement('div');
-
-        board.classList.add(CLASSES.BOARD);
-        section.appendChild(board);
+    function decorateDiagram(element) {
+        var board = element.getElementsByClassName('board')[0];
 
         new WGo.BasicPlayer(board, {
-            sgfFile: section.getAttribute('data-diagram'),
+            sgf: element.getAttribute('data-sgf'),
             markLastMove: false,
             enableKeys: false,
             enableWheel: false,
+            autoRespond: false,
+            showNotInKifu: false,
             layout: {top: [], right: [], left: [], bottom: []}
         });
     }
 
-    function decorateProblem(section) {
-        var board = document.createElement('div'),
-            status = document.createElement('div'),
+    function decorateProblem(element) {
+        var board = element.getElementsByClassName('board')[0],
+            status = element.getElementsByClassName('status')[0],
+            statusText = status.getElementsByTagName('p')[0],
+            button = status.getElementsByTagName('a')[0],
             hasCompleted = false,
             player;
 
         function triggerSuccess(comment) {
             status.classList.remove(CLASSES.FAIL);
             status.classList.add(CLASSES.SUCCESS);
-            status.innerHTML = 'Brawo! ' + comment + '<br/>Kliknij tutaj aby zacząć jeszcze raz.';
+            statusText.innerHTML = 'Brawo! ' + comment;
             hasCompleted = true;
             player.config.showNotInKifu = false;
         }
@@ -40,13 +41,13 @@
         function triggerFail(comment) {
             status.classList.add(CLASSES.FAIL);
             status.classList.remove(CLASSES.SUCCESS);
-            status.innerHTML = 'Źle. ' + comment + '<br/>Kliknij tutaj aby spróbować jeszcze raz.';
+            statusText.innerHTML = 'Źle. ' + comment;
             hasCompleted = true;
             player.config.showNotInKifu = false;
         }
 
         function triggerReset() {
-            status.innerHTML = 'Twój ruch.';
+            statusText.innerHTML = 'Twój ruch.';
             status.classList.remove(CLASSES.FAIL);
             status.classList.remove(CLASSES.SUCCESS);
             hasCompleted = false;
@@ -76,7 +77,7 @@
             if (params.type === 'nomoremoves') {
 
                 // solution is hidden inside the move's comment
-                if (params.node.comment && ~params.node.comment.indexOf('RIGHT')) {
+                if (params.node.comment && ~params.node.comment.indexOf('dobrze')) {
                     triggerSuccess(params.node.comment);
                 } else {
                     triggerFail(params.node.comment || '');
@@ -84,13 +85,7 @@
             }
         }
 
-        board.classList.add(CLASSES.BOARD);
-        status.classList.add(CLASSES.STATUS);
-
-        section.appendChild(board);
-        section.appendChild(status);
-
-        status.addEventListener('click', function () {
+        button.addEventListener('click', function () {
             if (hasCompleted) {
                 player.reset();
                 triggerReset();
@@ -99,7 +94,7 @@
         });
 
         player = new WGo.BasicPlayer(board, {
-            problemSgfFile: section.getAttribute('data-problem')
+            problemSgf: element.getAttribute('data-sgf')
         });
         player.addEventListener('nomoremoves', isProblemSolved);
         player.addEventListener('notinkifu', isProblemSolved);
@@ -108,16 +103,15 @@
     }
 
     global.addEventListener('load', function () {
-        var sections = document.getElementsByTagName('section');
+        var elements = document.getElementsByClassName('sgf');
 
-        Array.prototype.slice.call(sections).forEach(function (section) {
-            if (section.hasAttribute('data-problem')) {
-                decorateProblem(section);
-            } else if (section.hasAttribute('data-diagram')) {
-                decorateDiagram(section);
+        Array.prototype.slice.call(elements).forEach(function (element) {
+            if (element.classList.contains('problem')) {
+                decorateProblem(element);
+            } else if (element.classList.contains('diagram')) {
+                decorateDiagram(element);
             }
         });
-
 
         var selects = document.getElementsByClassName('lesson-selector');
 
