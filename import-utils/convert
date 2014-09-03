@@ -3,4 +3,6 @@
 IN=$1
 OUT=${1%%applet}sgf
 
-./convert.py < $IN > $OUT
+SCRIPT_DIR=$(dirname $(readlink -f $0))
+
+$SCRIPT_DIR/convert.py < $IN > $OUT
