@@ -12,6 +12,7 @@ module Jekyll
       site = context.registers[:site]
       page = context.registers[:page]
       path = File.join site.source, site.config["pages"], page["dir"], @sgf
+      path += ".sgf"
 
       return "Sgf #{@sgf} not found" unless File.exists? path
 
