@@ -79,6 +79,7 @@ class Convert:
 
   def parse(self):
     self.name = self.find_name()
+    self.size = self.find_size()
     self.start = self.convert_start()
     self.variants = self.convert_variants()
     
@@ -104,11 +105,16 @@ class Convert:
   def find_name(self):
     return self.find('<param name=problem value=([^>]+)>')
 
+  def find_size(self):
+    size = self.find('<param name=size value=([^>]+)>')
+    return size if size else 9
+
   def find_start(self):
     return self.find('<param name=init value="([^"]+)">')   
 
   def find_sequence(self):
     return self.find('<param name=sequence value ="([^"]+)">')
+
 
   def find(self, pattern):
     match = re.search(pattern, self.content)
@@ -116,7 +122,7 @@ class Convert:
       return match.group(1)
 
   def output(self):
-    print "(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]"
+    print "(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[%s]" % self.size
     sys.stdout.write(self.start)
     for node in self.sequence:
       self.print_node(node)
