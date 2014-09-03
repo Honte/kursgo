@@ -1,0 +1,10 @@
+<applet codebase="./../static/kurs" code="mori/go/FreeBoardApplet.class" width=350 height=410>
+
+        <param name=demo value=true>
+        <param name=size value=13>
+        <param name=blackheaven value=true>
+        <param name=report value=false>
+        <param name=problem value=BlackHeaven3>
+        <param name=init value="W[ba]W[ab]W[ca]W[ac]W[cb]W[bc]W[hd]W[he]W[hf]W[hg]W[id]W[ig]W[ih]W[jd]W[je]W[jf]W[jh]W[kg]W[kh]W[dl]W[dm]W[el]W[fl]W[fm]W[gl]W[hl]W[hm]">
+
+</applet>

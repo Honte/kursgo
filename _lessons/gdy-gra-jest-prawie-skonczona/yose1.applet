@@ -1,0 +1,15 @@
+<applet codebase="./../static/kurs" code="mori/go/ProblemApplet.class" width=300 height=250>
+        <param name=report value=false>
+        <param name=problem value=yose1>
+        <param name=init value="B[bd]B[cb]B[cc]B[cg]W[db]W[dc]B[dd]W[ec]B[ee]B[eg]W[fc]G[fe]W[gd]W[ge]W[gg]W[gh]">
+        <param name=sequence value ="
+{B[fh],dobrze - wziąłeś dużo terytorium na dole@red}
+{B[eh],W[fh],błąd - można było wziąć więcej!@blue}
+{B[ei],W[fi],dobrze - ale nie najlepiej@red}
+{B[fi],W[gi],dobrze - ale nie najlepiej@red}
+{B[fg],W[ei],błąd@blue}
+{B[gf],W[ff],błąd@blue}
+{B[dh],W[fh],błąd@blue}
+{B[zz],W[eh],błąd- straciłeś dolny brzeg.@blue}
+        ">
+</applet>

@@ -1,0 +1,50 @@
+<applet codebase="./../static/kurs" code="mori/go/ProblemApplet.class" width=300 height=250>
+        <param name=report value=false>
+        <param name=problem value=corner2>
+        <param name=init value="B[fh]B[gh]W[gf]W[gg]W[he]B[hf]B[hg]W[hh]">
+        <param name=sequence value ="
+{B[ih],W[hi],Białe uciekają@black,
+{B[gi],W[if],
+{B[ii],dobrze@red}
+{B[ig],W[ii],błąd@blue}
+{B[zz],W[ig],błąd@blue}
+}
+{B[ii],W[ig],błąd@blue}
+{B[if],W[ie],
+{B[ig],W[ii],błąd@blue}
+{B[zz],W[ig],błąd@blue}
+}
+{B[ig],W[ie],
+{B[gi],W[if],
+{B[ii],dobrze@red}
+{B[zz],W[ii],błąd@blue}
+}
+{B[ii],W[if],błąd@blue}
+{B[if],W[ii],błąd@blue}
+{B[zz],W[if],błąd - 4 czarne giną@blue}
+}
+{B[ie],W[ig],
+{B[if],W[id],
+{B[ig],W[ii],błąd@blue}
+{B[zz],W[ig],błąd@blue}
+}
+{B[zz],W[if],błąd@blue}
+}
+{B[zz],W[ig],błąd@blue}
+}
+{B[hi],W[ih],Białe uciekają@black,
+{B[ig],W[if],błąd@blue}
+{B[ii],W[gi],błąd@blue}
+{B[if],W[ie],błąd - 3 czarne giną@blue}
+{B[ie],W[ig],{B[if],W[id],błąd@blue}{B[zz],W[if],błąd@blue}}
+{B[zz],W[if],błąd - 2 czarne giną@blue}
+}
+{B[ie],W[ig],
+{B[if],W[id],błąd@blue}
+{B[zz],W[if],błąd@blue}
+}
+{B[ig],W[ih],błąd - 3 czarne nie mogą uciec@blue}
+{B[if],W[ie],{B[ig],W[ih],błąd@blue}{B[zz],W[ig],błąd@blue}}
+{B[zz],W[ig],błąd - 2 czarne nie mogą uciec@blue}
+        ">
+</applet>

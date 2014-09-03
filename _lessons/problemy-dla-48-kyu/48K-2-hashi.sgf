@@ -1,0 +1,10 @@
+(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
+AW[ad][ae][ca][cb][cc][cd]AB[af][be]
+(;B[bd];W[ac]
+(;B[bc];W[ab]
+(;B[bb];W[aa]
+(;B[ba]C[dobrze@red])
+(;B[tt];W[ba]C[błąd@blue]))
+(;B[tt];W[bb]C[błąd@blue]))
+(;B[tt];W[bc]C[błąd@blue]))
+(;B[tt];W[bd]C[błąd@blue]))

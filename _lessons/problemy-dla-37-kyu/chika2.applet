@@ -1,0 +1,26 @@
+<applet codebase="./../static/kurs" code="mori/go/ProblemApplet.class" width=300 height=250>
+        <param name=report value=false>
+        <param name=problem value=chika2>
+        <param name=init value="B[bf]W[bg]W[bh]W[cf]W[df]B[cg]B[dg]B[dh]W[ch]W[di]B[ee]B[ef]W[eg]W[gf]W[cd]">
+        <param name=sequence value ="
+{B[eh],W[fg],
+{B[ce],W[be],
+{B[de],dobrze@red}
+{B[af],W[de],błąd - czarne zostają rozdzielone@blue}
+{B[zz],W[af],błąd@blue}
+}
+{B[de],W[ce],błąd - czarne zostają rozdzielone@blue}
+{B[be],W[ce],błąd - czarne zostają rozdzielone@blue}
+{B[af],W[be],błąd - czarne na dole zostają samotne@blue}
+{B[ci],W[be],
+{B[ei],W[fh],błąd - czarne na dole zostają samotne@blue}
+{B[bi],W[ai],błąd - czarne na dole zostają samotne@blue}
+{B[fh],W[gh],błąd - czarne na dole zostają samotne@blue}
+{B[gh],B[fh],błąd - czarne na dole zostają samotne@blue}
+{B[zz],W[bi],błąd - czarne na dole zostają samotne@blue}
+}
+{B[zz],W[be],błąd - czarne na dole zostają samotne@blue}
+}
+{B[zz],W[eh],błąd@blue}
+        ">
+</applet>

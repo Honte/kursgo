@@ -1,0 +1,63 @@
+<applet codebase="./../static/kurs" code="mori/go/GoodShapeApplet.class" width=400 height=400>
+        <param name=startupmessage value="A więc zaczynamy.">
+        <param name=size value=9>
+        <param name=moves value="
+        B[ee]{Zagranie w centrum, które ma wpływ na wszystkie rogi!}
+        W[ef]{Biały atakuje kontaktowo.}
+        B[df]{Czarny przykleił się do kamienia atakujacego.}
+        W[de]{Przecięcie dwóch kamieni. Ponieważ biały jest także przecięty, /zażarta walka jest nie do uniknięcia!}
+        B[cf]{Wydłużenie sie z jednej strony w celu przygotowania się do walki./Jeżeli czarny zagra teraz na D6 będzie mógł zabić 4 w drabince.}
+        W[dd]{Było by to bardzo złe dla białego./Więc biały wydłuża się od 4.}
+        B[ed]{Atak na dwa białe kamienie z równoczesnym wzmocnieniem 1.}
+        W[dc]{Obrona przez wydłużenie.}
+        B[ff]{Atari na 2!}
+        W[eg]{Wydłużenie 2.}
+        B[fg]{Nadal atak na 2 białe kamienie.}
+        W[eh]{Ucieczka...}
+        B[ch]{Otaczanie trzech białych kamieni od lewej dolnej.}
+        W[fe]{Przecięcie czarnych kamieni.}
+        B[fd]{Atari na tnący kamień.}
+        W[ge]{Ucieczka....}
+        B[gd]{Dalszy atak}
+        W[gf]{Ucieczka w kierunku dolnej części planszy./Ucieczka jest równocześnie atakiem na kamienie 9 i 11.}
+        B[gg]{Czarny podejmuje walkę.}
+        W[hg]{Przyduszenie!}
+        B[bd]{Czarny zmienia zamiar. /Teraz miekko otacza trzy białe kamienie górnej lewej strony./W tym samym czasie zabezpiecza grupe z dolnej lewej strony.}
+        W[fb]{Biały wydłuża się w kierunku górnej części planszy/i atakuje cztery czarne kamienie.}
+        B[he]{Atari na trzy białe kamienie.}
+        W[hf]{Oczywiście zabezpieczenie ich.}
+        B[gb]{Próba utworzenia terytorium w górnej prawej cześci/z jednoczesnym atakiem na 22.}
+        W[fc]{Obrona 22./Później będzie można dokonać inwazji w G7.}
+        B[gc]{Zatkanie dziury w G7./Teraz górna prawa strona wygląda na terytorium czarnych.}
+        W[bc]{Biały buduje terytorium w lewej górnej części.}
+        B[cc]{Czarny wskakuje pomiędzy dwa białe kamienie.}
+        W[cd]{Biały atakuje agresora od zewnątrz./Atari!}
+        B[cb]{Czarny inwaduje głębiej.}
+        W[be]{Biały prawie zabija 21.}
+        B[ec]{Atak na 22 i 26.}
+        W[db]{Biały nie może ich bronić ze względu na inwazje z lewej,/więc oddaje dwa kamienie odcinając w zamian piony,/które dokonaly inwazji.}
+        B[eb]{Dwa białe kamienie są prawie zabite.}
+        W[bb]{Teraz dwa czarne kamienie są prawie martwe.}
+        B[bf]{Zabezpieczenie dolnego lewego rogu.}
+        W[hd]{Złapanie 23.}
+        B[hc]{Czarny oddaje 23 ale zabezpiecza się przed dalszą inwazją./Teraz 38 jest w Atari.}
+        W[ie]{Zabicie 23.}
+        B[dh]{Powiększenie dolnego lewego terytorium/przy jednoczesnym ataku na trzy białe kamienie.}
+        W[ic]{Biały ciągle próbuje inwazji na górze.}
+        B[ib]{Obrona/42 jest w Atari.}
+        W[id]{Połączenie 42.}
+        B[ce]{Poprzez atak na 32, czarny wymusza na białym zabicie 21.}
+        W[ad]{Zabicie 21.}
+        B[ei]{Czarny próbuje inwazji z prawej,/oddając jednoczesnie 3 kamienie(9,11,19).}
+        W[fi]{Zapobieżenie inwazji.}
+        B[di]{Połączenie 47.}
+        W[fh]{Teraz dla bezpieczeństwa biały musi zabić trzy czarne kamienie.}
+        B[dg]{Czarny nadal atakuje pięć białych kamieni./Gdyby następnie zagrał w G2 zabiłby je.}
+        W[gh]{Zabicie trzech kamieni zapewnia bezpieczeństwo.}
+        B[af]{Powiększenie lewego dolnego rogu...}
+        W[ea]{Groźba uratowania dwóch białych kamieni.}
+        B[fa]{Zabicie ich./54 jest w Atari.}
+        W[da]{Połączenie 54.}
+        B[ae]{Atari na 32.}
+        W[bd]{Białe łączą go./Teraz gra jest zakończona.">
+</applet>

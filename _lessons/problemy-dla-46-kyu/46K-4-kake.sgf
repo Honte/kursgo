@@ -1,0 +1,24 @@
+(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
+AW[bc][cf][cg][de][eg][fc]AB[cd][ce][df][ef]
+(;B[ed];W[dd]
+(;B[dc];W[ee]
+(;B[fe]C[dobrze@red])
+(;B[tt];W[fe]C[błąd@blue]))
+(;B[tt];W[dc]C[błąd@blue]))
+(;B[dd];W[ee]
+(;B[ed];W[fe]C[błąd@blue])
+(;B[fe];W[ed]C[błąd@blue])
+(;B[tt];B[fe]C[błąd@blue]))
+(;B[ee];W[dd]
+(;B[ed];W[dc]C[błąd@blue])
+(;B[dc];W[ed]C[błąd@blue])
+(;B[tt];W[dc]C[błąd@blue]))
+(;B[ec];W[ee]
+(;B[fe];W[ff]C[błąd@blue])
+(;B[ff];W[fe]C[błąd@blue])
+(;B[tt];W[ff]C[błąd@blue]))
+(;B[fd];W[ee]
+(;B[fe];W[ff]C[błąd@blue])
+(;B[ff];W[fe]C[błąd@blue])
+(;B[tt];W[ff]C[błąd@blue]))
+(;B[tt];W[ed]C[błąd@blue]))

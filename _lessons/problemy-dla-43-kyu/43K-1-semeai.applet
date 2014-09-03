@@ -1,0 +1,28 @@
+<applet codebase="./../static/kurs" code="mori/go/ProblemApplet.class" width=250 height=250>
+	<param name=report value=false>
+	<param name=problem value=43K-1-semeai>
+	<param name=init value="B[ca]B[cb]B[cc]B[dd]B[ed]W[ea]W[eb]W[ec]W[fd]W[gd]B[fa]B[fb]B[fc]W[ha]W[hb]W[hc]">
+	<param name=sequence value ="
+		{B[da],W[gc],
+			{B[db],W[gb],{B[dc],dobrze@red}{B[zz],W[ga],błąd@blue}}
+			{B[dc],W[gb],{B[db],dobrze@red}{B[zz],W[ga],błąd@blue}}
+			{B[gb],W[ga],błąd@blue}
+			{B[zz],W[gb],błąd@blue}
+		}
+		{B[db],W[gc],
+			{B[da],W[gb],{B[dc],dobrze@red}{B[zz],W[ga],błąd@blue}}
+			{B[dc],W[gb],{B[da],dobrze@red}{B[zz],W[ga],błąd@blue}}
+			{B[gb],W[ga],błąd@blue}
+			{B[zz],W[gb],błąd@blue}
+		}
+		{B[dc],W[gc],
+			{B[da],W[gb],{B[db],dobrze@red}{B[zz],W[ga],błąd@blue}}
+			{B[db],W[gb],{B[da],dobrze@red}{B[zz],W[ga],błąd@blue}}
+			{B[gb],W[ga],błąd@blue}
+			{B[zz],W[gb],błąd@blue}
+		}
+		{B[gc],W[gb],błąd@blue}
+		{B[zz],W[gc],błąd@blue}
+	">
+
+</applet>

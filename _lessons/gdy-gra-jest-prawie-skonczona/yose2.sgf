@@ -1,0 +1,16 @@
+(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
+AW[ee][ef][eg][eh][fc][fd][ga][gb][ge][di]AB[dd][de][df][dg][dh][eb][ec][ed][fa][fb]
+(;B[ci];W[ei]C[Sprawa jeszcze nie zakończona@black,{B[ch],dobrze - zapobiegłeś przecięciu.@red])
+(;B[bh]C[dobrze - zapobiegłeś przecięciu.@red])
+(;B[cg]C[dobrze - zapobiegłeś przecięciu.@red])
+(;B[ah];W[ch]
+(;B[bi];W[bh]
+(;B[ai];W[ag]C[błąd@blue])
+(;B[tt];W[ai]C[błąd@blue]))
+(;B[tt];W[bi]C[błąd@blue]))
+(;B[bi];W[ch]
+(;B[bh]C[zadziałało ale nie było dobrze@red])
+(;B[cg];W[bh]C[błąd@blue])
+(;B[tt];W[bh]C[błąd@blue]))
+(;B[tt];W[ch]C[Biały tnie Twoje kamienie!@black,{B[bi],W[bh],{B[ai],W[ah],błąd@blue])
+(;B[tt];W[ai]C[błąd@blue]))

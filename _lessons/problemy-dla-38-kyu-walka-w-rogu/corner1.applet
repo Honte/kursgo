@@ -1,0 +1,65 @@
+<applet codebase="./../static/kurs" code="mori/go/ProblemApplet.class" width=300 height=250>
+        <param name=report value=false>
+
+        <param name=problem value=corner1>
+        <param name=init value="W[bf]W[cf]B[df]B[bg]B[cg]W[dg]B[eg]W[ch]W[dh]B[eh]">
+        <param name=sequence value ="
+{B[bh],W[bi],
+{B[di],W[ag],{B[ci],dobrze@red}{B[ah],W[ai],błąd@blue}{B[zz],W[ah],błąd@blue}}
+{B[ci],W[di],
+{B[ei],W[ag],{B[ci],dobrze@red}{B[ah],W[ai],błąd@blue}{B[zz],W[ah],błąd@blue}}
+{B[ai],W[ah],błąd@blue}
+{B[ah],W[af],
+{B[ei],W[ag],
+{B[ci],dobrze@red}
+{B[zz],W[ai],błąd@blue}
+}
+{B[ag],W[ai],błąd}
+{B[zz],W[ag],błąd}
+}
+{B[ag],W[af],błąd - 4 czarne kamienie nie mogą uciec@blue}
+{B[af],W[ah],
+{B[ag],W[ae],błąd@blue}
+{B[zz],W[ag],błąd@blue}
+}
+{B[zz],W[ag],błąd@blue}
+}
+{B[ai],W[ah],błąd@blue}
+{B[ah],W[af],
+{B[di],W[ag],
+{B[ci],dobrze@red}
+{B[ai],W[ci],błąd@blue}
+{B[zz],W[aa],błąd@blue}
+}
+{B[ci],W[di],
+{B[ei],W[ag],{B[ci],dobrze@red}{B[zz],W[ai],błąd@blue}}
+{B[ag],W[ai],błąd@blue}
+{B[aa],W[ag],błąd@blue}
+{B[zz],W[ag],błąd - 4 czarne kamienie nie mogą uciec@blue}
+}
+{B[ag],W[ai],błąd@blue}
+{B[zz],W[ag],błąd@blue}
+}
+{B[ag],W[af],
+{B[ah],W[ai],błąd@blue}
+{B[zz],W[ah],błąd@blue}
+}
+{B[af],W[ah],{B[ag],W[ae],błąd@blue}{B[zz],W[ag],błąd@blue}}
+{B[zz],W[ag],błąd@blue}
+}
+{B[ag],W[bh],
+{B[af],W[ae],błąd - nie możesz uciec@blue}
+{B[ah],W[af],błąd - nie możesz uciec@blue}
+{B[ae],W[af],błąd - nie możesz uciec@blue}
+{B[zz],W[ah],błąd@blue}
+}
+{B[af],W[bh],
+{B[ag],W[ae],
+{B[ah],W[ai],błąd@blue}
+{B[zz],W[ah],błąd@blue}
+}
+{B[zz],W[ag],błąd@blue}
+}
+{B[zz],W[bh],błąd - 2 czarne kamienie nie mogą uciec@blue}
+        ">
+</applet>

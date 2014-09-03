@@ -1,0 +1,15 @@
+<applet codebase="./../static/kurs" code="mori/go/ProblemApplet.class" width=250 height=250>
+        <param name=report value=false>
+        <param name=problem value=hitome-3>
+        <param name=init value="B[cg]B[dg]W[ef]W[eg]B[fg]B[eh]W[fh]">
+        <param name=sequence value ="
+{B[gh],Dobrze - zabiłeś F2@red}
+{B[dh],W[gg],błąd - F3 jest stracony@blue}
+{B[di],W[gg],błąd - F3 jest stracony@blue}
+{B[ei],W[gg],błąd - F3 jest stracony@blue}
+{B[ch],W[gg],błąd - F3 jest stracony@blue}
+{B[ci],W[gg],błąd - F3 jest stracony@blue}
+{B[fi],W[gh],błąd - E2 jest stracony@blue}
+{B[zz],W[dh],błąd - E2 jest stracony@blue}
+        ">
+</applet>

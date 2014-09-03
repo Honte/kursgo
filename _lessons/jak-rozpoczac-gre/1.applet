@@ -1,0 +1,5 @@
+<applet codebase="./../static/kurs" code="mori/go/FreeBoardApplet.class" width=300 height=350 align=left border=10>
+        <param name=demo value=true>
+        <param name=size value=13>
+        <param name=moves value="B[cc]W[kk]B[dj]W[kd]">
+</applet>

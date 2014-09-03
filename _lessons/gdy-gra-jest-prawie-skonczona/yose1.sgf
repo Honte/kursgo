@@ -1,0 +1,10 @@
+(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
+AW[db][dc][ec][fc][gd][ge][gg][gh]AB[bd][cb][cc][cg][dd][ee][eg]
+(;B[fh]C[dobrze - wziąłeś dużo terytorium na dole@red])
+(;B[eh];W[fh]C[błąd - można było wziąć więcej!@blue])
+(;B[ei];W[fi]C[dobrze - ale nie najlepiej@red])
+(;B[fi];W[gi]C[dobrze - ale nie najlepiej@red])
+(;B[fg];W[ei]C[błąd@blue])
+(;B[gf];W[ff]C[błąd@blue])
+(;B[dh];W[fh]C[błąd@blue])
+(;B[tt];W[eh]C[błąd- straciłeś dolny brzeg.@blue]))

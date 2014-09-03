@@ -1,0 +1,13 @@
+<applet codebase="./../static/kurs" code="mori/go/ProblemApplet.class" width=300 height=250>
+        <param name=report value=false>
+        <param name=problem value=falseeye2>
+        <param name=init value="W[dc]W[ec]W[fc]W[gc]W[bc]W[be]W[cc]B[be]B[cd]B[cf]W[ce]W[cg]W[bd]W[ae]B[dd]B[ed]B[fd]B[ee]B[df]B[ef]B[ff]B[ge]W[dg]W[eg]W[fg]W[hd]W[he]W[hf]W[bg]">
+        <param name=sequence value ="
+{B[bf],W[gf],
+{B[gd],dobrze - C5 jest martwy.@red}
+{B[zz],W[gd],błąd - F5 jest fałszywym okiem.@blue}
+}
+{B[de],W[bf],błąd - masz fałszywe oko.@blue}
+{B[zz],W[bf],błąd@blue}
+        ">
+</applet>

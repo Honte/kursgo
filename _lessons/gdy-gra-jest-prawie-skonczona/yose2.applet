@@ -1,0 +1,35 @@
+<applet codebase="./../static/kurs" code="mori/go/ProblemApplet.class" width=250 height=250>
+        <param name=report value=false>
+        <param name=problem value=yose2>
+        <param name=init value="B[dd]B[de]B[df]B[dg]B[dh]B[eb]B[ec]B[ed]B[fa]B[fb]
+        W[ee]W[ef]W[eg]W[eh]W[fc]W[fd]W[ga]W[gb]W[ge]W[di]">
+        <param name=sequence value ="
+                {B[ci],W[ei],Sprawa jeszcze nie zakończona@black,
+{B[ch],dobrze - zapobiegłeś przecięciu.@red}
+{B[bh],dobrze - zapobiegłeś przecięciu.@red}
+{B[cg],dobrze - zapobiegłeś przecięciu.@red}
+{B[ah],W[ch],
+{B[bi],W[bh],
+{B[ai],W[ag],błąd@blue}
+{B[zz],W[ai],błąd@blue}
+}
+{B[zz],W[bi],błąd@blue}
+}
+{B[bi],W[ch],
+{B[bh],zadziałało ale nie było dobrze@red}
+{B[cg],W[bh],błąd@blue}
+{B[zz],W[bh],błąd@blue}
+}
+{B[zz],W[ch],Biały tnie Twoje kamienie!@black,
+{B[bi],W[bh],
+{B[ai],W[ah],błąd@blue}
+{B[zz],W[ai],błąd@blue}
+}
+{B[zz],W[bi],błąd@blue}
+}
+}
+{B[gc],W[hc],błąd - nie da się tego tak zrobić@blue}
+{B[ei],W[fi],błąd@blue}
+{B[zz],W[ci],błąd@blue}
+        ">
+</applet>

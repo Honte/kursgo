@@ -1,0 +1,57 @@
+(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
+AW[bf][cf][dg][ch][dh]AB[df][bg][cg][eg][eh]
+(;B[bh];W[bi]
+(;B[di];W[ag]
+(;B[ci]C[dobrze@red])
+(;B[ah];W[ai]C[błąd@blue])
+(;B[tt];W[ah]C[błąd@blue]))
+(;B[ci];W[di]
+(;B[ei];W[ag]
+(;B[ci]C[dobrze@red])
+(;B[ah];W[ai]C[błąd@blue])
+(;B[tt];W[ah]C[błąd@blue]))
+(;B[ai];W[ah]C[błąd@blue])
+(;B[ah];W[af]
+(;B[ei];W[ag]
+(;B[ci]C[dobrze@red])
+(;B[tt];W[ai]C[błąd@blue]))
+(;B[ag];W[ai]C[błąd])
+(;B[tt];W[ag]C[błąd]))
+(;B[ag];W[af]C[błąd - 4 czarne kamienie nie mogą uciec@blue])
+(;B[af];W[ah]
+(;B[ag];W[ae]C[błąd@blue])
+(;B[tt];W[ag]C[błąd@blue]))
+(;B[tt];W[ag]C[błąd@blue]))
+(;B[ai];W[ah]C[błąd@blue])
+(;B[ah];W[af]
+(;B[di];W[ag]
+(;B[ci]C[dobrze@red])
+(;B[ai];W[ci]C[błąd@blue])
+(;B[tt];W[aa]C[błąd@blue]))
+(;B[ci];W[di]
+(;B[ei];W[ag]
+(;B[ci]C[dobrze@red])
+(;B[tt];W[ai]C[błąd@blue]))
+(;B[ag];W[ai]C[błąd@blue])
+(;B[aa];W[ag]C[błąd@blue])
+(;B[tt];W[ag]C[błąd - 4 czarne kamienie nie mogą uciec@blue]))
+(;B[ag];W[ai]C[błąd@blue])
+(;B[tt];W[ag]C[błąd@blue]))
+(;B[ag];W[af]
+(;B[ah];W[ai]C[błąd@blue])
+(;B[tt];W[ah]C[błąd@blue]))
+(;B[af];W[ah]
+(;B[ag];W[ae]C[błąd@blue])
+(;B[tt];W[ag]C[błąd@blue]))
+(;B[tt];W[ag]C[błąd@blue]))
+(;B[ag];W[bh]
+(;B[af];W[ae]C[błąd - nie możesz uciec@blue])
+(;B[ah];W[af]C[błąd - nie możesz uciec@blue])
+(;B[ae];W[af]C[błąd - nie możesz uciec@blue])
+(;B[tt];W[ah]C[błąd@blue]))
+(;B[af];W[bh]
+(;B[ag];W[ae]
+(;B[ah];W[ai]C[błąd@blue])
+(;B[tt];W[ah]C[błąd@blue]))
+(;B[tt];W[ag]C[błąd@blue]))
+(;B[tt];W[bh]C[błąd - 2 czarne kamienie nie mogą uciec@blue]))

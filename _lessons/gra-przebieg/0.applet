@@ -1,0 +1,36 @@
+<applet codebase="./../static/kurs" code="mori/go/GoodShapeApplet.class" width=400 height=400>
+    <param name=startupmessage value="Zacznijmy!">
+        <param name=size value=9>
+        <param name=moves value="
+B[de]{Zaczynamy w okolicach centrum.}
+W[fe]{Czarne są z lewej, więc białe zaczynają z prawej.}
+B[dc]{Rozszerzenie w górę...}
+W[fg]{W tej sytuacji białe rozszerzają się na dół.}
+B[dg]{Czarne chroniąc dół zabierają lewą stronę.}
+W[fc]{Białe wobec tego zabierają prawą.}
+B[fb]{Czarne grożą inwazją na prawo.}
+W[gb]{Białe się zabezpieczają.}
+B[eb]{Czarne również.}
+W[dh]{Teraz białe atakują lewą stronę.}
+B[ch]{Czarne bronią.}
+W[eg]{Atak na 5 czarnych.}
+B[df]{Obrona 5 przez połączenie.}
+W[hc]{Zabezpieczenie przed cięciem w G7.}
+B[eh]{Atari na 10 białych.}
+W[fh]{Nie są w stanie go obronić,./ale zabezpieczają się przed przyszłą inwazją.}
+B[di]{Zabicie białego, ponieważ 15 znalazł się również w Atari.}
+W[ec]{Atak na lewej stronie...}
+B[fi]{Czarne również próbują inwadować prawy dolny róg.}
+W[gi]{Białe zabezpieczają.}
+B[ei]{Połączenie kamienia w Atari.}
+W[gh]{Zabezpieczenie przed cięciem w G2.}
+B[ee]{Próba wejścia do centrum przez atak na 2 białych.}
+W[ed]{Biały broni się nacikając jednocześnie na lewo.}
+B[dd]{Obrona przez połączenie.}
+W[fa]{Powiększenie swojego terytorium połączone z redukcją czarnego./Także przygotowanie cięcia w D8.}
+B[da]{Obrona przed cięciem w D8.}
+W[ef]{Zwiększenie terytorium.}
+B[ea]{Atari na białych 26.}
+W[ga]{Obrona 26 i gra jest skończona./Nie ma miejsca do zagrania dla żadnej ze stron.">
+
+</applet>

@@ -1,0 +1,6 @@
+<applet codebase="./../static/kurs" code="mori/go/FreeBoardApplet.class" width=300 height=350>
+
+        <param name=size value=19>
+        <param name=init value="B[dd]B[dp]B[pp]B[pd]B[jd]B[jp]B[pj]B[dj]B[jj]">
+        <param name=next value=W>
+</applet>

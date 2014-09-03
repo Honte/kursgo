@@ -1,0 +1,60 @@
+<applet codebase="./../static/kurs" code="mori/go/ProblemApplet.class" width=250 height=250>
+	<param name=problem value=shicho-1>
+	<param name=report value=false>
+	<param name=init value="B[be]B[bf]B[cg]W[cf]">
+	<param name=sequence value ="
+		{B[df],W[ce],białe uciekają@black,
+			{B[cd],W[de],
+				{B[ee],W[dd],
+					{B[dc],W[ed],
+						{B[fd],W[ec],do czego to zmierza?@black,
+							{B[eb],W[fc],
+								{B[gc],W[fb],
+									{B[fa],W[gb],
+										{B[hb],W[ef],białe atakują z tyłu!@black,
+											{B[ga],dobrze@red}
+											{B[dg],W[fe],błąd@blue}
+											{B[zz],W[dg],błąd@blue}
+										}
+										{B[zz],W[hb],błąd@blue}
+									}
+									{B[gb],W[fa],
+										{B[ea],W[ef],białe atakują z tyłu!@black,
+											{B[ga],dobrze@red}
+											{B[dg],W[fe],błąd@blue}
+											{B[zz],W[dg],błąd@blue}
+										}
+										{B[ga],W[ef],białe atakują z tyłu!@black,
+											{B[ea],dobrze@red}
+											{B[dg],W[fe],błąd@blue}
+											{B[zz],W[dg],błąd@blue}
+										}
+										{B[gd],W[cc],błąd@blue}
+										{B[ge],W[cc],błąd@blue}
+										{B[fe],W[cc],błąd@blue}
+										{B[ff],W[cc],błąd@blue}
+										{B[ef],W[cc],błąd@blue}
+										{B[zz],W[fe],błąd@blue}
+									}
+									{B[gd],W[cc],błąd@blue}
+									{B[ge],W[cc],błąd@blue}
+									{B[fe],W[cc],błąd@blue}
+									{B[ff],W[cc],błąd@blue}
+									{B[ef],W[cc],błąd@blue}
+									{B[zz],W[fe],błąd@blue}
+								}
+								{B[zz],W[gc],błąd@blue}
+							}
+							{B[zz],W[eb],błąd@blue}
+						}
+						{B[zz],W[fd],błąd@blue}
+					}
+					{B[zz],W[dc],błąd@blue}
+				}
+				{B[zz],W[ee],błąd@blue}
+			}
+			{B[zz],W[cd],błąd@blue}
+		}
+		{B[zz],W[df],błąd@blue}
+	">
+</applet>

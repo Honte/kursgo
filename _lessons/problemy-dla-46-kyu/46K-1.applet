@@ -1,0 +1,9 @@
+<applet codebase="./../static/kurs" code="mori/go/ProblemApplet.class" width=250 height=250>
+	<param name=problem value=46K-1>
+    <param name=init value="B[cc]B[cd]B[db]W[dc]W[dd]B[de]W[ea]W[eb]W[ed]B[ee]
+		B[fb]W[fc]B[fd]W[gc]">
+	<param name=sequence value ="
+		{B[ec],dobrze@red}
+		{B[zz],W[ec],błąd@blue}
+	">
+</applet>

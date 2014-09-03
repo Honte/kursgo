@@ -1,0 +1,24 @@
+<applet codebase="./../static/kurs" code="mori/go/ProblemApplet.class" width=250 height=250>
+	<param name=problem value=shicho-2>
+
+	<param name=init value="B[cd]W[bd]W[be]W[cc]W[dd]B[fh]">
+	<param name=sequence value ="
+		{B[ce],W[cf],Atari!@black,
+			{B[de],W[ee],Atari!@black,
+				{B[df],W[dg],Atari!@black,
+					{B[ef],W[ff],Atari!@black,
+						{B[eg],W[eh],Atari!@black,
+							{B[fg],dobrze@red}
+							{B[zz],W[fg],błąd@blue}
+						}
+						{B[zz],W[eg],błąd@blue}
+					}
+					{B[zz],W[ef],błąd@blue}
+				}
+				{B[zz],W[df],błąd@blue}
+			}
+			{B[zz],W[de],błąd@blue}
+		}
+		{B[zz],W[ce],błąd@blue}
+	">
+</applet>
