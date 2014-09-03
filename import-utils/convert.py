@@ -91,6 +91,11 @@ class Convert:
     matches = re.findall('(B|W)(\[[a-z][a-z]\])', old)
     for color, pos in matches:
        stones[color].append(pos)
+
+    whites = ("AW%s" % (u"".join(stones['W']))) if len(stones['W']) > 0 else ""
+    blacks = ("AB%s" % (u"".join(stones['B']))) if len(stones['B']) > 0 else ""
+
+    return "%s%s" % (whites, blacks)
     return "AW%sAB%s" % (u"".join(stones['W']), u"".join(stones['B']))
 
   def convert_variants(self):
