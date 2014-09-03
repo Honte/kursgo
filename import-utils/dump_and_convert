@@ -1,0 +1,9 @@
+#! /bin/sh
+
+SCRIPT_DIR=$(dirname $(readlink -f $0))
+
+$SCRIPT_DIR/dump.py
+mv kurs/* _lessons/
+rmdir kurs
+
+find _lessons/ -iname "*.applet" -exec $SCRIPT_DIR/convert {} \;
