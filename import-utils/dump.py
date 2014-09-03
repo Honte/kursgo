@@ -20,7 +20,7 @@ def save(row):
   if not os.path.exists(row['dst']):
     os.makedirs(row['dst'])
 
-  save_title(row)
+  #save_title(row)
   withTokens = extract_applets(row)
   save_body(row, withTokens)
 
@@ -41,7 +41,7 @@ def extract_applets(row):
     appletStr = match.group(1)
     name = gen_name(appletStr)
     applets[name] = appletStr
-    return '{%% problem %s %%}' % name
+    return '{%% problem %s %%}\n{%% endproblem %%}' % name
 
   withTokens = re.sub(r'(<applet.*?</applet>)', 
                       replace_applet_with_token, 
@@ -51,9 +51,12 @@ def extract_applets(row):
   return withTokens
 
 def save_body(row, withTokens):
-  with codecs.open("%s/body" % row['dst'], "w", "utf-8") as titleFile:
-    titleFile.write('---\nlayout: lekcja\ntitle: %s\n---\n' % row['title'])
-    titleFile.write(withTokens)
+  with codecs.open("%s/index.html" % row['dst'], "w", "utf-8") as bodyFile:
+    bodyFile.write('---\n')
+#    bodyFile.write('layout: lekcja\n')
+    bodyFile.write('title: %s\n' % row['title'])
+    bodyFile.write('---\n')
+    bodyFile.write(withTokens)
 
 def save_applets(dir, applets):
   for name, applet in applets.iteritems():
