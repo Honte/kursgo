@@ -178,6 +178,24 @@ var board_click_default = function(x,y) {
                         change: this.kifuReader.change
                     });
                 }
+            } else if (this.config.autoPass) {
+                this.kifuReader.node.appendChild(new WGo.KNode({
+                    move: {
+                        pass: true
+                    }
+                }));
+
+                // play pass move
+                this.next(this.kifuReader.node.children.length - 1);
+
+                this.dispatchEvent({
+                    type: "autopassed",
+                    target: this,
+                    node: this.kifuReader.node,
+                    position: this.kifuReader.getPosition(),
+                    path: this.kifuReader.path,
+                    change: this.kifuReader.change
+                });
             }
 			return false;
 		}
@@ -186,34 +204,47 @@ var board_click_default = function(x,y) {
     var isValid = this.kifuReader.game.isValid(x, y, null);
 
     if (this.config.showNotInKifu && isValid) {
+        var response = null;
 
-        // find children with pas, if found, save next move for later
-        var afterPasMove = null;
-        this.kifuReader.node.children.forEach(function (child) {
-            if (child.move.pass) {
-                afterPasMove = child.children[0];
-                return false;
-            }
-        }, this);
+        // if auto respond is enabled - find move after pas and play it as a response to not-in-kifu move.
+        if (this.config.autoRespond) {
+
+            // find children with pas, if found, save next move for later
+            this.kifuReader.node.children.forEach(function (child) {
+                if (child.move.pass) {
+                    response = child.children[0];
+                    return false;
+                }
+            }, this);
+
+        // if auto pas is enabled play pas after the not-in-kifu move
+        } else if (this.config.autoPass) {
+
+            response = new WGo.KNode({
+                move: {
+                    pass: true
+                }
+            });
+        }
 
         // append the not-in-kifu move
         this.kifuReader.node.appendChild(new WGo.KNode({
             move: {
                 x: x,
-                y: y,
-                c: this.kifuReader.game.turn
+                y: y
             }
         }));
+
         // play not-in-kifu move
         this.next(this.kifuReader.node.children.length - 1);
 
         // if after pas move exists play it and trigger nomoremoves
-        if (afterPasMove && afterPasMove.move) {
-            this.kifuReader.node.appendChild(afterPasMove);
+        if (response && response.move) {
+            this.kifuReader.node.appendChild(response);
             this.next(this.kifuReader.node.children.length - 1);
 
             this.dispatchEvent({
-                type: "nomoremoves",
+                type: this.config.autoRespond ? "nomoremoves" : "autopassed",
                 target: this,
                 node: this.kifuReader.node,
                 position: this.kifuReader.getPosition(),
@@ -738,6 +769,7 @@ Player.default = {
 	markLastMove: true,
     showVariations: true,
     autoRespond: false,
+    autoPass: false,
     showNotInKifu: false,
     notinkifu: undefined,
     nomoremoves: undefined

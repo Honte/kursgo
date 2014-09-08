@@ -123,8 +123,7 @@ section {
   }
 }
 
-.problem,
-.diagram {
+.sgf {
   overflow: hidden;
   margin: 20px 0;
   padding: 10px 20px;
@@ -154,7 +153,7 @@ section {
     }
   }
 
-  .success, .fail {
+  .success, .fail, .in-progress {
     a {
       display: inline-block;
       cursor: pointer;
@@ -263,8 +262,7 @@ section {
 }
 
 @include media-query(620px) {
-  .problem,
-  .diagram {
+  .sgf {
     p {
       float: none;
       width: 100%;

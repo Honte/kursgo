@@ -5,6 +5,7 @@
         CLASSES = {
             BOARD: 'board',
             STATUS: 'status',
+            IN_PROGRESS: 'in-progress',
             SUCCESS: 'success',
             FAIL: 'fail'
         };
@@ -20,6 +21,72 @@
             autoRespond: false,
             showNotInKifu: false,
             layout: {top: [], right: [], left: [], bottom: []}
+        });
+    }
+
+    function decorateFreePlay(element) {
+        var board = element.getElementsByClassName('board')[0],
+            status = element.getElementsByClassName('status')[0],
+            statusText = status.getElementsByTagName('p')[0],
+            button = status.getElementsByTagName('a')[0],
+            hasCompleted = false,
+            counter = 0,
+            player;
+
+        player = new WGo.BasicPlayer(board, {
+            sgf: element.getAttribute('data-sgf'),
+            markLastMove: false,
+            enableKeys: false,
+            enableWheel: false,
+            autoRespond: false,
+            autoPass: true,
+            showNotInKifu: true,
+            showVariations: false,
+            layout: {top: [], right: [], left: [], bottom: []}
+        });
+
+        function triggerSuccess(comment) {
+            status.classList.remove(CLASSES.FAIL);
+            status.classList.remove(CLASSES.IN_PROGRESS);
+            status.classList.add(CLASSES.SUCCESS);
+            statusText.innerHTML = 'Brawo! ' + comment;
+            hasCompleted = true;
+            player.config.showNotInKifu = false;
+        }
+
+        function triggerReset() {
+            counter = 0;
+            statusText.innerHTML = 'Twój ruch.';
+            status.classList.remove(CLASSES.IN_PROGRESS);
+            status.classList.remove(CLASSES.FAIL);
+            status.classList.remove(CLASSES.SUCCESS);
+            hasCompleted = false;
+            player.config.showNotInKifu = true;
+        }
+
+        function updateStatus(params) {
+            if (hasCompleted) {
+                return;
+            }
+
+            var whiteCount = params.position.schema.reduce(function (sum, el) { return sum + (el === WGo.W); }, 0);
+
+            counter += 1;
+            statusText.innerHTML = "Ruchów: " + counter + "<br>Kamieni do zbicia: " + whiteCount;
+
+            status.classList.add(CLASSES.IN_PROGRESS);
+
+            if (whiteCount === 0) {
+                triggerSuccess("Udało Ci się zbić białego. Liczba wykonanych ruchów: " + counter);
+            }
+        }
+
+        player.addEventListener('autopassed', updateStatus);
+
+        button.addEventListener('click', function () {
+            player.reset();
+            triggerReset();
+            return false;
         });
     }
 
@@ -111,6 +178,8 @@
                 decorateProblem(element);
             } else if (element.classList.contains('diagram')) {
                 decorateDiagram(element);
+            } else if (element.classList.contains('freeplay')) {
+                decorateFreePlay(element);
             }
         });
 

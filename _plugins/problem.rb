@@ -41,7 +41,21 @@ module Jekyll
       </div>"
     end
   end
+
+  class FreePlayBlock < SgfBlock
+      def render(context)
+        "<div class=\"sgf freeplay\" data-sgf=\"#{read_sgf(context)}\">
+          <p>#{super}</p>
+          <div class=\"board\">Jeżeli chcesz rozwiązywać problemy interaktywnie, musisz włączyć JavaScript.</div>
+          <div class=\"status\">
+              <p>Twój ruch.</p>
+              <a class=\"button\">Jeszcze raz</a>
+          </div>
+        </div>"
+      end
+  end
 end
 
 Liquid::Template.register_tag('problem', Jekyll::ProblemBlock)
 Liquid::Template.register_tag('diagram', Jekyll::DiagramBlock)
+Liquid::Template.register_tag('freeplay', Jekyll::FreePlayBlock)
