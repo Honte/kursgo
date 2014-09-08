@@ -1,7 +1,8 @@
 (function(global) {
     'use strict';
 
-    var CLASSES = {
+    var CORRECT_ANSWER = "[OK]",
+        CLASSES = {
             BOARD: 'board',
             STATUS: 'status',
             SUCCESS: 'success',
@@ -77,8 +78,8 @@
             if (params.type === 'nomoremoves') {
 
                 // solution is hidden inside the move's comment
-                if (params.node.comment && ~params.node.comment.indexOf('dobrze')) {
-                    triggerSuccess(params.node.comment);
+                if (params.node.comment && ~params.node.comment.indexOf(CORRECT_ANSWER)) {
+                    triggerSuccess(params.node.comment.replace(CORRECT_ANSWER, ''));
                 } else {
                     triggerFail(params.node.comment || '');
                 }

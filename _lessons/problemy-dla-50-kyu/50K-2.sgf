@@ -1,4 +1,10 @@
-(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
-AW[dc][dd]AB[cc][cd][db][de][ec]
-(;B[ed]C[dobrze@red])
-(;B[tt];W[ed]C[błąd@blue]))
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[9]KM[0.00]
+AW[dc][dd]AB[db][cc][ec][cd][de]
+(;B[ed]C[[OK\]Białe kamienie złapane.])
+(;B[]
+;W[ed]C[Białe kamienie uciekają])
+(;B[fd]
+;W[ed]C[Co prawda po tym ruchu czarny gracz dalej może zbić białe kamienie to jednak powinien to zrobić w poprzednim ruchu (zgodnie z poleceniem).])
+(;B[ee]
+;W[ed]C[Co prawda po tym ruchu czarny gracz dalej może zbić białe kamienie to jednak powinien to zrobić w poprzednim ruchu (zgodnie z poleceniem).]))
