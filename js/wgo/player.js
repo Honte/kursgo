@@ -9,7 +9,7 @@ var FileError = function(path, code) {
     if(code == 1) this.message = "File '"+path+"' is empty.";
 	else if(code == 2) this.message = "Network error. It is not possible to read '"+path+"'.";
 	else this.message = "File '"+path+"' hasn't been found on server.";
-}
+};
 
 FileError.prototype = new Error();
 FileError.prototype.constructor = FileError;
@@ -44,7 +44,7 @@ var loadFromUrl = WGo.loadFromUrl = function(url, callback) {
 		throw new FileError(url, 2);
 	}
 	
-}
+};
 
 // basic updating function - handles board changes
 var update_board = function(e) {
@@ -100,7 +100,7 @@ var update_board = function(e) {
 	// add new markers on the board
 	this.temp_marks = add;
 	this.board.addObject(add);
-}
+};
 
 // preparing board
 var prepare_board = function(e) {
@@ -112,14 +112,14 @@ var prepare_board = function(e) {
 	
 	// activate wheel
 	if(this.config.enableWheel) this.setWheel(true);
-}
+};
 
 // detecting scrolling of element - e.g. when we are scrolling text in comment box, we want to be aware. 
 var detect_scrolling = function(node, bp) {
 	if(node == bp.element || node == bp.element) return false;
 	else if(node._wgo_scrollable || (node.scrollHeight > node.offsetHeight)) return true;
 	else return detect_scrolling(node.parentNode, bp);
-}
+};
 
 // mouse wheel event callback, for replaying a game
 var wheel_lis = function(e) {
@@ -157,116 +157,126 @@ var key_lis = function(e) {
 
 // function handling board clicks in normal mode
 var board_click_default = function(x,y) {
+    if (isDelaying) return false;
 	if(!this.kifuReader || !this.kifuReader.node) return false;
-	for(var i in this.kifuReader.node.children) {
-		if(this.kifuReader.node.children[i].move && this.kifuReader.node.children[i].move.x == x && this.kifuReader.node.children[i].move.y == y) {
-			this.next(i);
 
-            if (this.config.autoRespond) {
+    var isValid = this.kifuReader.game.isValid(x, y, null),
+        kifuPathIndex = -1;
 
-                // try to move
-                this.next(0);
+    if (!isValid) return false;
 
-                // if no more moves in kifu (previous try failed or there're no more moves afterwards)
-                if (!this.kifuReader.hasNext()) {
-                    this.dispatchEvent({
-                        type: "nomoremoves",
-                        target: this,
-                        node: this.kifuReader.node,
-                        position: this.kifuReader.getPosition(),
-                        path: this.kifuReader.path,
-                        change: this.kifuReader.change
-                    });
-                }
-            } else if (this.config.autoPass) {
-                this.kifuReader.node.appendChild(new WGo.KNode({
-                    move: {
-                        pass: true
-                    }
-                }));
-
-                // play pass move
-                this.next(this.kifuReader.node.children.length - 1);
-
-                this.dispatchEvent({
-                    type: "autopassed",
-                    target: this,
-                    node: this.kifuReader.node,
-                    position: this.kifuReader.getPosition(),
-                    path: this.kifuReader.path,
-                    change: this.kifuReader.change
-                });
-            }
-			return false;
-		}
-	}
-
-    var isValid = this.kifuReader.game.isValid(x, y, null);
-
-    if (this.config.showNotInKifu && isValid) {
-        var response = null;
-
-        // if auto respond is enabled - find move after pas and play it as a response to not-in-kifu move.
-        if (this.config.autoRespond) {
-
-            // find children with pas, if found, save next move for later
-            this.kifuReader.node.children.forEach(function (child) {
-                if (child.move.pass) {
-                    response = child.children[0];
-                    return false;
-                }
-            }, this);
-
-        // if auto pas is enabled play pas after the not-in-kifu move
-        } else if (this.config.autoPass) {
-
-            response = new WGo.KNode({
-                move: {
-                    pass: true
-                }
-            });
+    // try to find if the move is included in kifu
+    this.kifuReader.node.children.forEach(function (child, index) {
+        if (child.move.x == x && child.move.y == y) {
+            kifuPathIndex = index;
+            return false;
         }
+    }, this);
 
-        // append the not-in-kifu move
-        this.kifuReader.node.appendChild(new WGo.KNode({
+    // if move in kifu - play it
+    if (kifuPathIndex > -1) {
+        this.next(kifuPathIndex);
+        quickDispatchEvent.call(this, "played");
+
+    // if move is not in kifu
+    } else if (this.config.showNotInKifu) {
+
+        appendNodeAndPlay.call(this, new WGo.KNode({
             move: {
                 x: x,
                 y: y
             }
         }));
+        quickDispatchEvent.call(this, "played");
 
-        // play not-in-kifu move
-        this.next(this.kifuReader.node.children.length - 1);
-
-        // if after pas move exists play it and trigger nomoremoves
-        if (response && response.move) {
-            this.kifuReader.node.appendChild(response);
-            this.next(this.kifuReader.node.children.length - 1);
-
-            this.dispatchEvent({
-                type: this.config.autoRespond ? "nomoremoves" : "autopassed",
-                target: this,
-                node: this.kifuReader.node,
-                position: this.kifuReader.getPosition(),
-                path: this.kifuReader.path,
-                change: this.kifuReader.change
-            });
-
-            // don't trigger notinkifu
-            return false;
-        }
+    } else {
+        quickDispatchEvent.call(this, "notinkifu");
+        return false; // no auto-respond is supported in this case
     }
 
-    this.dispatchEvent({
-        type: "notinkifu",
-        isValid: isValid,
+    if (this.config.autoRespond) {
+
+        // if there is response in kifu
+        if (this.kifuReader.node.children.length) {
+            delay.call(this, function () {
+                this.next(0);
+                quickDispatchEvent.call(this, "responded");
+
+                if (!this.kifuReader.node.children.length) {
+                    quickDispatchEvent.call(this, "nomoremoves");
+                }
+            }, this.config.responseDelay);
+
+        } else {
+
+            var response = null;
+
+            if (kifuPathIndex === -1) {
+                // find children with pas, if found, get next move as a response
+                this.kifuReader.node.parent.children.forEach(function (child) {
+                    if (child.move.pass) {
+                        response = child.children[0];
+                        return false;
+                    }
+                }, this);
+            }
+
+            if (response) {
+                delay.call(this, function () {
+                    appendNodeAndPlay.call(this, response);
+                    quickDispatchEvent.call(this, "responded");
+                    quickDispatchEvent.call(this, "nomoremoves");
+                }, this.config.responseDelay);
+            } else {
+                quickDispatchEvent.call(this, "noresponse");
+                quickDispatchEvent.call(this, "nomoremoves");
+            }
+        }
+
+    } else if (this.config.autoPass) {
+        delay.call(this, function () {
+            appendNodeAndPlay.call(this, new WGo.KNode({
+                move: {
+                    pass: true
+                }
+            }));
+            quickDispatchEvent.call(this, "responded");
+            quickDispatchEvent.call(this, "nomoremoves");
+        }, this.config.responseDelay);
+    }
+};
+
+function quickDispatchEvent(event) {
+    var params = {
+        type: event,
         target: this,
         node: this.kifuReader.node,
         position: this.kifuReader.getPosition(),
         path: this.kifuReader.path,
         change: this.kifuReader.change
-    });
-};
+    };
+    this.dispatchEvent(params);
+}
+
+function appendNodeAndPlay(node) {
+    this.kifuReader.node.appendChild(node);
+    this.next(this.kifuReader.node.children.length - 1);
+}
+
+var isDelaying = false;
+function delay(callback, delay) {
+    var self = this;
+
+    if (delay > 0) {
+        isDelaying = true;
+        setTimeout(function () {
+            isDelaying = false;
+            callback.call(self);
+        }, delay);
+    } else {
+        callback.call(self);
+    }
+}
 
 // coordinates drawing handler - adds coordinates on the board
 /*var coordinates = {
@@ -331,7 +341,7 @@ var Player = function(config) {
 	
 	this.init();
 	this.initGame();
-}
+};
 
 Player.prototype = {
 	constructor: Player,
@@ -745,9 +755,8 @@ Player.prototype = {
 			this.board.removeCustomObject(WGo.Board.coordinates);
 		}
 		this.coordinates = b;
-	},
-
-}
+	}
+};
 
 Player.default = {
 	sgf: undefined,
@@ -772,8 +781,9 @@ Player.default = {
     autoPass: false,
     showNotInKifu: false,
     notinkifu: undefined,
-    nomoremoves: undefined
-}
+    nomoremoves: undefined,
+    responseDelay: 400
+};
 
 WGo.Player = Player;
 
@@ -809,10 +819,9 @@ var player_terms = {
 	"EV": "Event",
 	"SO": "Source",
 	"none": "none",
-	"bpass": "Black passed.",
-	"wpass": "White passed.",
+	"bpass": "Black passed."
 };
 
 for(var key in player_terms) WGo.i18n.en[key] = player_terms[key];
 
-})(WGo);
+}(WGo));

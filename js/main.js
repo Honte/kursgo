@@ -10,6 +10,69 @@
             FAIL: 'fail'
         };
 
+    /**
+     * Functionality decorator and proxy for WGo Player handlers.
+     * It binds references to some specific DOMElement objects and calls handler function with following params:
+     * - board - Reference to wgo-player placeholder (not yet wgo-player instance)
+     * - sgf
+     * - api - set of functions:
+     *  + progress(text) - adds in-progress class
+     *  + success(text) - adds success class, removes others
+     *  + failure(text) - adds failure class, remove others
+     *  + reset(text) - removes all classes
+     *  + onClick(callback,scope) - button click callback
+     *
+     *
+     * @param {DOMElement} element
+     * @param {Function} handler
+     */
+    function decorateWgo(element, handler) {
+        var board =      element.getElementsByClassName('board')[0],
+            sgf =        element.getAttribute('data-sgf'),
+            status =     element.getElementsByClassName('status')[0],
+            statusText = status.getElementsByTagName('p')[0],
+            button =     status.getElementsByTagName('a')[0];
+
+        function setStatusText(text) {
+            if (text) {
+                statusText.innerHTML = text;
+            }
+        }
+
+        handler(board, sgf, {
+            progress: function (text) {
+                status.classList.add(CLASSES.IN_PROGRESS);
+                setStatusText(text);
+            },
+            success:  function (text) {
+                status.classList.remove(CLASSES.FAIL);
+                status.classList.remove(CLASSES.IN_PROGRESS);
+                status.classList.add(CLASSES.SUCCESS);
+                setStatusText(text);
+            },
+
+            failure: function (text) {
+                status.classList.add(CLASSES.FAIL);
+                status.classList.remove(CLASSES.IN_PROGRESS);
+                status.classList.remove(CLASSES.SUCCESS);
+                setStatusText(text);
+            },
+
+            reset: function (text) {
+                status.classList.remove(CLASSES.FAIL);
+                status.classList.remove(CLASSES.IN_PROGRESS);
+                status.classList.remove(CLASSES.SUCCESS);
+                setStatusText(text);
+            },
+
+            onClick: function (callback, scope) {
+                button.addEventListener('click', function (e) {
+                    return callback.call(scope || this, e) === true; // automatic return false;
+                });
+            }
+        });
+    }
+
     function decorateDiagram(element) {
         var board = element.getElementsByClassName('board')[0];
 
@@ -24,17 +87,13 @@
         });
     }
 
-    function decorateFreePlay(element) {
-        var board = element.getElementsByClassName('board')[0],
-            status = element.getElementsByClassName('status')[0],
-            statusText = status.getElementsByTagName('p')[0],
-            button = status.getElementsByTagName('a')[0],
-            hasCompleted = false,
+    function decorateFreePlay(board, sgf, api) {
+        var hasCompleted = false,
             counter = 0,
             player;
 
         player = new WGo.BasicPlayer(board, {
-            sgf: element.getAttribute('data-sgf'),
+            sgf: sgf,
             markLastMove: false,
             enableKeys: false,
             enableWheel: false,
@@ -42,28 +101,28 @@
             autoPass: true,
             showNotInKifu: true,
             showVariations: false,
+            responseDelay: 0,
             layout: {top: [], right: [], left: [], bottom: []}
         });
 
         function triggerSuccess(comment) {
-            status.classList.remove(CLASSES.FAIL);
-            status.classList.remove(CLASSES.IN_PROGRESS);
-            status.classList.add(CLASSES.SUCCESS);
-            statusText.innerHTML = 'Brawo! ' + comment;
+            api.success('Brawo! ' + comment);
             hasCompleted = true;
             player.config.showNotInKifu = false;
         }
 
         function triggerReset() {
+            api.reset('Twój ruch.');
             counter = 0;
-            statusText.innerHTML = 'Twój ruch.';
-            status.classList.remove(CLASSES.IN_PROGRESS);
-            status.classList.remove(CLASSES.FAIL);
-            status.classList.remove(CLASSES.SUCCESS);
             hasCompleted = false;
             player.config.showNotInKifu = true;
         }
 
+        /**
+         * Event handler for responded event.
+         * Checks if all white stones have been caught. If yes  - triggers success, otherwise - updates status text .
+         * @param {Object} params
+         */
         function updateStatus(params) {
             if (hasCompleted) {
                 return;
@@ -72,52 +131,40 @@
             var whiteCount = params.position.schema.reduce(function (sum, el) { return sum + (el === WGo.W); }, 0);
 
             counter += 1;
-            statusText.innerHTML = "Ruchów: " + counter + "<br>Kamieni do zbicia: " + whiteCount;
 
-            status.classList.add(CLASSES.IN_PROGRESS);
+            api.progress("Ruchów: " + counter + "<br>Kamieni do zbicia: " + whiteCount);
 
             if (whiteCount === 0) {
                 triggerSuccess("Udało Ci się zbić białego. Liczba wykonanych ruchów: " + counter);
             }
         }
 
-        player.addEventListener('autopassed', updateStatus);
+        player.addEventListener('responded', updateStatus);
 
-        button.addEventListener('click', function () {
+        api.onClick(function () {
             player.reset();
             triggerReset();
-            return false;
         });
     }
 
-    function decorateProblem(element) {
-        var board = element.getElementsByClassName('board')[0],
-            status = element.getElementsByClassName('status')[0],
-            statusText = status.getElementsByTagName('p')[0],
-            button = status.getElementsByTagName('a')[0],
-            hasCompleted = false,
+    function decorateProblem(board, sgf, api) {
+        var hasCompleted = false,
             player;
 
         function triggerSuccess(comment) {
-            status.classList.remove(CLASSES.FAIL);
-            status.classList.add(CLASSES.SUCCESS);
-            statusText.innerHTML = 'Brawo! ' + comment;
+            api.success('Brawo! ' + comment);
             hasCompleted = true;
             player.config.showNotInKifu = false;
         }
 
         function triggerFail(comment) {
-            status.classList.add(CLASSES.FAIL);
-            status.classList.remove(CLASSES.SUCCESS);
-            statusText.innerHTML = 'Źle. ' + comment;
+            api.failure('Źle. ' + comment);
             hasCompleted = true;
             player.config.showNotInKifu = false;
         }
 
         function triggerReset() {
-            statusText.innerHTML = 'Twój ruch.';
-            status.classList.remove(CLASSES.FAIL);
-            status.classList.remove(CLASSES.SUCCESS);
+            api.reset('Twój ruch.');
             hasCompleted = false;
             player.config.showNotInKifu = true;
         }
@@ -135,7 +182,7 @@
             }
 
             // fail when the move is valid but was not found in kifu
-            if (params.type === 'notinkifu' && params.isValid) {
+            if (params.type === 'notinkifu') {
                 triggerFail(params.node.comment || '');
                 return;
             }
@@ -153,17 +200,25 @@
             }
         }
 
-        button.addEventListener('click', function () {
-            if (hasCompleted) {
-                player.reset();
-                triggerReset();
-            }
-            return false;
+        function whiteToPlay() {
+            api.progress('Biały gra...');
+        }
+
+        function blackToPlay() {
+            api.progress('Twój ruch');
+        }
+
+        api.onClick(function () {
+            player.reset();
+            triggerReset();
         });
 
         player = new WGo.BasicPlayer(board, {
-            problemSgf: element.getAttribute('data-sgf')
+            problemSgf: sgf
         });
+
+        player.addEventListener('played', whiteToPlay);
+        player.addEventListener('responded', blackToPlay);
         player.addEventListener('nomoremoves', isProblemSolved);
         player.addEventListener('notinkifu', isProblemSolved);
 
@@ -175,11 +230,11 @@
 
         Array.prototype.slice.call(elements).forEach(function (element) {
             if (element.classList.contains('problem')) {
-                decorateProblem(element);
+                decorateWgo(element, decorateProblem);
             } else if (element.classList.contains('diagram')) {
                 decorateDiagram(element);
             } else if (element.classList.contains('freeplay')) {
-                decorateFreePlay(element);
+                decorateWgo(element, decorateFreePlay);
             }
         });
 
