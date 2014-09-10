@@ -1,21 +1,20 @@
 ---
 title: Ruchy niedozwolone
 ---
-Kamienie możesz kłaść na planszy prawie wszędzie.<br>
-Istnieje jednak kilka miejsc, w których zasady zabraniają stawiać kamienie.
-<p>
+<section>
+    <p>Kamienie możesz kłaść na planszy prawie wszędzie.<br>Istnieje jednak kilka miejsc, w których zasady zabraniają stawiać kamienie.</p>
 
-<hr>
-<img src="./../static/images/illegal.gif" align=left width=245 height=245>
-<p> Czarny nie może wykonać ruchu w A. (Biały może.)
-<p> Dlatego, że gdy czarny tam zagra, jego kamień będzie całkowicie otoczony.
-<p> Takie samobójcze postępowanie jest zabronione.
-<p>
+    {% diagram illegal-1 %}
+        Czarny nie może wykonać ruchu w A. (Biały może.)<br>
+        Dlatego, że gdy czarny tam zagra, jego kamień będzie całkowicie otoczony.<br>
+        Takie samobójcze postępowanie jest zabronione.
+    {% enddiagram %}
 
-<br clear=left>
-<hr>
-<img src="./../static/images/illegal2.gif" vspace=10 hspace=5 align=left width=246 height=245><p>
-Czarny może jednak zagrać w B.<p>
-Wraz z położeniem czarnego kamienia w B, dwa sąsiednie białe kamienie będą otoczone i usunięte. (Sytuacja poniżej.)<p>
-<br clear=left>
-<image src="./../static/images/illegal3.gif" width=246 height=246>
+    {% diagram illegal-2 %}
+        Czarny może jednak zagrać w B.
+    {% enddiagram %}
+
+    {% diagram illegal-3 %}
+        Wraz z położeniem czarnego kamienia w B, dwa sąsiednie białe kamienie będą otoczone i usunięte.
+    {% enddiagram %}
+</section>

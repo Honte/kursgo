@@ -20,6 +20,7 @@
      *  + success(text) - adds success class, removes others
      *  + failure(text) - adds failure class, remove others
      *  + reset(text) - removes all classes
+     *  + status(text) - updates status text only
      *  + onClick(callback,scope) - button click callback
      *
      *
@@ -65,6 +66,8 @@
                 setStatusText(text);
             },
 
+            status: setStatusText,
+
             onClick: function (callback, scope) {
                 button.addEventListener('click', function (e) {
                     return callback.call(scope || this, e) === true; // automatic return false;
@@ -83,6 +86,8 @@
             enableWheel: false,
             autoRespond: false,
             showNotInKifu: false,
+            noClick: true,
+            showNextMove: true,
             layout: {top: [], right: [], left: [], bottom: []}
         });
     }
@@ -135,7 +140,7 @@
             api.progress("Ruchów: " + counter + "<br>Kamieni do zbicia: " + whiteCount);
 
             if (whiteCount === 0) {
-                triggerSuccess("Udało Ci się zbić białego. Liczba wykonanych ruchów: " + counter);
+                triggerSuccess("Udało Ci się zbić wszystkie kamienie białego. Liczba wykonanych ruchów: " + counter);
             }
         }
 
@@ -201,7 +206,7 @@
         }
 
         function whiteToPlay() {
-            api.progress('Biały gra...');
+            api.status('Biały gra...');
         }
 
         function blackToPlay() {

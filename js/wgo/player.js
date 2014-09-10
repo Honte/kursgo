@@ -70,16 +70,18 @@ var update_board = function(e) {
 	}
 	
 	// add variation letters
-    if (this.config.showVariations !== false) {
-        if (e.node.children.length > 1) {
+    if (this.config.showVariations !== false || this.config.showNextMove) {
+        if (e.node.children.length > 1 || this.config.showNextMove) {
             for (var i = 0; i < e.node.children.length; i++) {
-                if (e.node.children[i].move && !e.node.children[i].move.pass)    add.push({
-                    type: "LB",
-                    text: String.fromCharCode(65 + i),
-                    x:    e.node.children[i].move.x,
-                    y:    e.node.children[i].move.y,
-                    c:    "rgba(0,32,128,0.8)"
-                });
+                if (e.node.children[i].move && !e.node.children[i].move.pass) {
+                    add.push({
+                        type: "LB",
+                        text: String.fromCharCode(65 + i),
+                        x:    e.node.children[i].move.x,
+                        y:    e.node.children[i].move.y,
+                        c:    "rgba(0,32,128,0.8)"
+                    });
+                }
             }
         }
     }
@@ -157,7 +159,7 @@ var key_lis = function(e) {
 
 // function handling board clicks in normal mode
 var board_click_default = function(x,y) {
-    if (isDelaying) return false;
+    if (this.config.noClick) return false;
 	if(!this.kifuReader || !this.kifuReader.node) return false;
 
     var isValid = this.kifuReader.game.isValid(x, y, null),
@@ -263,14 +265,14 @@ function appendNodeAndPlay(node) {
     this.next(this.kifuReader.node.children.length - 1);
 }
 
-var isDelaying = false;
 function delay(callback, delay) {
-    var self = this;
+    var self = this,
+        prevNoClickState = this.config.noClick;
 
     if (delay > 0) {
-        isDelaying = true;
+        self.config.noClick = true;
         setTimeout(function () {
-            isDelaying = false;
+            self.config.noClick = prevNoClickState;
             callback.call(self);
         }, delay);
     } else {
@@ -777,12 +779,14 @@ Player.default = {
 	allowIllegalMoves: false,
 	markLastMove: true,
     showVariations: true,
+    showNextMove: false,
     autoRespond: false,
     autoPass: false,
     showNotInKifu: false,
     notinkifu: undefined,
     nomoremoves: undefined,
-    responseDelay: 400
+    responseDelay: 400,
+    noClick: false
 };
 
 WGo.Player = Player;
