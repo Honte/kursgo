@@ -1,37 +1,41 @@
 ---
 title: Kamienie, których nie można zabić - robienie dwóch oczu!
 ---
-<hr>
-Czarny znów jest zadowolony - grający białymi nie będzie odpowiadał.<br>
-Niedozwolone ruchy będą jednak blokowane.
-<p>
-
-{% problem BlackHeaven2 %}
-{% endproblem %}
-
-<hr>
+<section>
+	<p>Czarny znów jest zadowolony - grający białymi nie będzie odpowiadał.<br>
+	Niedozwolone ruchy będą jednak blokowane.</p>
+	{% freeplay BlackHeaven2 %}
+		Zbij wszystkie białe kamienie.
+	{% endfreeplay %}
+</section>
+	
+<section>
 <h3>Kamienie, których nie można zabić</h3>
-Jak zapewne spostrzegłeś w ostatnim przykładzie, każda grupa składajšca się z wielu kamieni
-może zostać zabita tylko wtedy, gdy zostanie otoczona.
-<p> Na przykład, w diagramie poniżej czarne kamienie zostały dokładnie otoczone
-  - nie ma dokąd uciec - można tylko czekać na zabicie przez białe ruchem w środek.
-<p>
-<img src="./../static/images/nigan3.gif"><p>
+	<p>Jak zapewne spostrzegłeś w ostatnim przykładzie, nawet grupa składająca się z wielu kamieni
+	może zostać zabita, gdy zostanie otoczona.</p>
+	<p>Na przykład, w diagramie poniżej czarne kamienie zostały dokładnie otoczone
+	  - nie ma dokąd uciec - można tylko czekać na zabicie przez białe ruchem w środek.</p>
+	{% diagram 0-can-kill %}
+	{% enddiagram %}
+</section>
 
-<hr>
-A co w sytuacji poniżej?
-<p> Pomimo że czarne są otoczone, białe nie mogą ich zabić. Są dwa miejsca
-  potrzebne do zabicia czarnej grupy - ale oba otoczone przez czarne, więc biały nie może w nie grać.
+<section>
+	<p>A co w sytuacji poniżej?</p>
+	<p>Pomimo że czarne są otoczone, białe nie mogą ich zabić. Są dwa miejsca
+	potrzebne do zabicia czarnej grupy - ale oba otoczone przez czarne, więc biały nie może w nie grać.</p>
 
-<p> Dlatego gdy masz 2 odseparowane miejsca, czyli <b>dwoje oczu</b>, Twoje kamienie nigdy nie będą zabite. <br>
-  O takich grupach kamieni mówimy, że są <b>żywe</b>.
-<p>
-<img src="./../static/images/nigan1.gif"><p>
+	<p>Dlatego gdy masz 2 odseparowane miejsca, czyli <b>dwoje oczu</b>, Twoje kamienie nigdy nie będą zabite. <br>
+	  O takich grupach kamieni mówimy, że są <b>żywe</b>.</p>
+    {% diagram 1-two-eyes %}
+	{% enddiagram %}
+</section>
 
-<hr>
-Czarne są znowu zadowolone.<p>
+<section>
+	<p>Czarne są znowu zadowolone.</p>
 
-{% problem BlackHeaven3 %}
-{% endproblem %}
-<p> Udało Ci się zabić białe?
-<p> Założe się, że nie! Są nadal żywe, ponieważ mają dwoje oczu.
+	{% freeplay BlackHeaven3 %}
+	{% endfreeplay %}
+
+	<p>Udało Ci się zabić białe?</br>
+	Założe się, że nie! Są nadal żywe, ponieważ mają dwoje oczu.</p>
+</section>
