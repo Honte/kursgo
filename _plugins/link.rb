@@ -15,12 +15,17 @@ module Jekyll
 
     def render(context)
         markup = @markup.split " "
+        name = markup[0]
         selector = markup.shift.split "."
 
+        # check if lesson is served as a variable
         lesson = context
         while (selector.count > 0) do
             lesson = lesson[selector.shift]
         end
+
+        # if lesson is still nil, find it by the name
+        lesson = context.registers[:site].config["lessons_map"][name] if lesson.nil?
 
         current_lesson = context["page"]
 

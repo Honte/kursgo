@@ -1,5 +1,78 @@
-(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
-AW[cf]AB[be][bf][cg]
-(;B[df];W[ce]C[białe uciekają@black,			{B[cd],W[de],				{B[ee],W[dd],					{B[dc],W[ed],						{B[fd],W[ec],do czego to zmierza?@black,							{B[eb],W[fc],								{B[gc],W[fb],									{B[fa],W[gb],										{B[hb],W[ef],białe atakują z tyłu!@black,											{B[ga],dobrze@red])
-(;B[dg];W[fe]C[błąd@blue])
-(;B[tt];W[dg]C[błąd@blue]))
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[9]KM[0.00]
+PW[Białe]PB[Czarne]AW[cf]AB[be][bf][cg]
+(;B[df]
+;W[ce]C[Białe uciekają.]
+(;B[cd]
+;W[de]
+(;B[ee]
+;W[dd]
+(;B[dc]
+;W[ed]
+(;B[fd]
+;W[ec]C[Do czego to zmierza?]
+(;B[eb]
+;W[fc]
+(;B[gc]
+;W[fb]
+(;B[fa]
+;W[gb]
+(;B[hb]
+;W[ef]C[Białe atakują z tyłu!]
+(;B[ga]C[[OK\]])
+(;B[fe]
+;W[dg])
+(;B[]
+;W[fe]))
+(;B[]
+;W[hb]))
+(;B[]
+;W[db])
+(;B[gb]
+;W[fa]
+(;B[ga]
+;W[ef]C[Białe atakują z tyłu!]
+(;B[ea]C[[OK\]])
+(;B[fe]
+;W[dg])
+(;B[]
+;W[fe]))
+(;B[ea]
+;W[ef]C[Białe atakują z tyłu!]
+(;B[ga]C[[OK\]])
+(;B[fe]
+;W[dg])
+(;B[]
+;W[fe]))
+(;B[]
+;W[fe])
+(;B[gd]
+;W[ef])
+(;B[fe]
+;W[cc])
+(;B[ef]
+;W[cc])
+(;B[ff]
+;W[cc])
+(;B[ge]
+;W[cc]))
+(;B[db]
+;W[fe])
+(;B[cb]
+;W[fe])
+(;B[cc]
+;W[fe]))
+(;B[]
+;W[gc]))
+(;B[]
+;W[eb]))
+(;B[]
+;W[fd]))
+(;B[]
+;W[dc]))
+(;B[]
+;W[ee]))
+(;B[]
+;W[cd]))
+(;B[]
+;W[df]))

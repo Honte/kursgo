@@ -209,8 +209,8 @@
             api.status('Biały gra...');
         }
 
-        function blackToPlay() {
-            api.progress('Twój ruch');
+        function blackToPlay(params) {
+            api.progress((params.node.comment ? params.node.comment + ' ' : '') + 'Twój ruch.');
         }
 
         api.onClick(function () {
