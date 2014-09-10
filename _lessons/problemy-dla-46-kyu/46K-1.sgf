@@ -1,4 +1,6 @@
-(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
-AW[dc][dd][ea][eb][ed][fc][gc]AB[cc][cd][db][de][ee][fb][fd]
-(;B[ec]C[dobrze@red])
-(;B[tt];W[ec]C[błąd@blue]))
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[9]KM[0.00]
+AW[ea][eb][dc][fc][gc][dd][ed]AB[db][fb][cc][cd][fd][de][ee]
+(;B[ec]C[[OK\]])
+(;B[]
+;W[ec]))
