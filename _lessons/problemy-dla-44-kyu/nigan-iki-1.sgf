@@ -1,10 +1,18 @@
-(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
-AW[bc][bd][be][cb][db][eb][fb][gb][hc][hd][he][cf][df][ef][ff][gf]AB[cc][dc][ec][fc][gc][ce][de][ee][fe][ge][cd][gd]
-(;B[ed]C[dobrze@red])
-(;B[dd];W[ed]
-(;B[fd];W[ed]C[błąd@blue])
-(;B[tt];W[fd]C[błąd@blue]))
-(;B[fd];W[ed]
-(;B[dd];W[ed]C[błąd@blue])
-(;B[tt];W[dd]C[błąd@blue]))
-(;B[tt];W[ed]C[błąd@blue]))
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[9]KM[0.00]
+AW[cb][db][eb][fb][gb][bc][hc][bd][hd][be][he][cf][df][ef][ff][gf]AB[cc][dc][ec][fc][gc][cd][gd][ce][de][ee][fe][ge]
+(;B[ed]C[[OK\]])
+(;B[dd]
+;W[ed]
+(;B[fd]
+;W[ed])
+(;B[]
+;W[fd]))
+(;B[fd]
+;W[ed]
+(;B[dd]
+;W[ed])
+(;B[]
+;W[dd]))
+(;B[]
+;W[ed]C[Czarny nie ma oczu.]))

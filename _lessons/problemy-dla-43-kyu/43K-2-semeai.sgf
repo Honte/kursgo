@@ -1,40 +1,77 @@
-(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
-AW[ba][bb][bc][cd][dd][ec][eb]AB[bd][be][bf][ca][cb][cc]
-(;B[ac];W[da]
-(;B[ab];W[db]
-(;B[aa]C[dobrze@red])
-(;B[tt];W[dc]C[błąd@blue]))
-(;B[aa];W[db]
-(;B[ab]C[dobrze@red])
-(;B[tt];W[dc]C[błąd@blue]))
-(;B[db];W[dc]C[błąd@blue])
-(;B[tt];W[db]C[błąd@blue]))
-(;B[ab];W[da]
-(;B[ac];W[db]
-(;B[aa]C[dobrze@red])
-(;B[tt];W[dc]C[błąd@blue]))
-(;B[aa];W[ac]C[błąd@blue])
-(;B[db];W[dc]C[błąd@blue])
-(;B[tt];W[db]C[błąd@blue]))
-(;B[aa];W[ab]
-(;B[ad];W[da]
-(;B[ac];W[db]
-(;B[aa]C[dobrze@red])
-(;B[tt];W[dc]C[błąd@blue]))
-(;B[dc];W[db]C[błąd@blue])
-(;B[tt];W[dc]C[błąd@blue]))
-(;B[ac];W[ad]C[błąd@blue])
-(;B[da];W[ea]C[błąd@blue])
-(;B[db];W[dc]C[błąd@blue])
-(;B[ea];W[da]
-(;B[db];W[dc]
-(;B[da];W[fa]C[błąd@blue])
-(;B[tt];W[da]C[błąd@blue]))
-(;B[tt];W[db]C[błąd@blue]))
-(;B[tt];W[da]C[błąd@blue]))
-(;B[da];W[ea]C[błąd@blue])
-(;B[db];W[dc]C[błąd@blue])
-(;B[ea];W[db]
-(;B[da];W[fa]C[błąd@blue])
-(;B[tt];W[da]C[błąd@blue]))
-(;B[tt];W[da]C[błąd@blue]))
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[9]KM[0.00]
+AW[ba][bb][eb][bc][ec][cd][dd]AB[ca][cb][cc][bd][be][bf]
+(;B[ac]
+;W[da]
+(;B[ab]
+;W[db]
+(;B[aa]C[[OK\]])
+(;B[]
+;W[dc]))
+(;B[aa]
+;W[db]
+(;B[ab]C[[OK\]])
+(;B[]
+;W[dc]))
+(;B[db]
+;W[dc])
+(;B[]
+;W[db]C[Biały zbije pierwszy.]))
+(;B[ab]
+;W[da]
+(;B[ac]
+;W[db]
+(;B[aa]C[[OK\]])
+(;B[]
+;W[dc]))
+(;B[aa]
+;W[ac]C[Biały zbije pierwszy.])
+(;B[db]
+;W[dc])
+(;B[]
+;W[db]C[Biały zbije pierwszy.]))
+(;B[aa]
+;W[ab]
+(;B[ad]
+;W[da]
+(;B[ac]
+;W[db]
+(;B[aa]C[[OK\]])
+(;B[]
+;W[dc]))
+(;B[dc]
+;W[db])
+(;B[]
+;W[dc]C[Biały zbije pierwszy.]))
+(;B[ac]
+;W[ad]C[Można znacznie lepiej.])
+(;B[da]
+;W[ea]C[Biały zbije pierwszy.])
+(;B[db]
+;W[dc]C[Biały zbije pierwszy.])
+(;B[ea]
+;W[da]
+(;B[db]
+;W[dc]
+(;B[da]
+;W[fa])
+(;B[]
+;W[da]))
+(;B[]
+;W[db]C[Biały zbije pierwszy.]))
+(;B[]
+;W[da]C[Biały zbije pierwszy.]))
+(;B[da]
+;W[ea]C[Biały zbije pierwszy.])
+(;B[db]
+;W[dc]C[Biały zbije pierwszy.])
+(;B[ea]
+;W[db]
+(;B[da]
+;W[fa]
+;B[]
+;W[dc])
+(;B[]
+;W[da]C[Biały zbije pierwszy.]))
+(;B[]
+;W[da]C[Biały zbije pierwszy.]))
