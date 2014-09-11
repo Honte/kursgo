@@ -1,7 +1,7 @@
 (;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
 AW[cd][dd][cg][dg][ee][ef][fd][ge]AB[de][df][ec][ed][eg][fg][gf]
-(;B[ff];W[fe]C[błąd@blue])
+(;B[ff];W[fe]C[Biały się połączył.])
 (;B[fe];W[ff]
-(;B[fe]C[dobrze@red])
-(;B[tt];W[fe]C[błąd@blue]))
-(;B[tt];W[fe]C[błąd@blue]))
+(;B[fe]C[[OK\]])
+(;B[tt];W[fe]C[Biały się połączył.]))
+(;B[tt];W[fe]C[Biały się połączył.]))
