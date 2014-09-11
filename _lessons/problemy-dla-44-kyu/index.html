@@ -1,41 +1,34 @@
 ---
 title: Problemy dla 44 kyu
 ---
-<h3>Robienie dwojga oczu</h3>
+<section>
+	<h3>Robienie dwojga oczu</h3>
+	{% problem nigan-iki-1 %}
+		<p>Teraz czarny jest całkowicie otoczony. Jaki musi zrobic ruch?</p>
+	{% endproblem %}<p>
 
-<hr>
-Teraz czarny jest całkowicie otoczony. Jaki musi zrobic ruch?<p>
+	<p>Pomimo że czarne mają w środku trzy pola, ta figura może mieć wkrótce tylko jedno oko.<br>
+	Dlatego musisz zrobić dwoje oczu przez postawienie kamienia rozdzielającego.</p>
+	<p> Jeżeli tego nie zrobisz biały zagra tam, gdzie powinien zagrać czarny.</p>
+	<p>Przysłowie Go - <b>Punkt decydujący dla Ciebie jest punktem decydującym dla przeciwnika.</b><p>
+</section>
 
-{% problem nigan-iki-1 %}
-{% endproblem %}<p>
+<section>
+	{% problem nigan-iki-2 %}
+		<p>Gdzie powinieneś postawić kamień rozdzielający na diagramie poniżej?</p>
+	{% endproblem %}
+	<p>Jak widać Twoje terytorium jest zbyt małe, czeka Cię ciężkie życie.</p>
+	<p>Zawsze próbuj zbudować wystarczająco duże terytorium i nie dać się otoczyć.</p>
+</section>
 
-Pomimo że czarne mają w środku trzy pola, ta figura może mieć wkrótce tylko jedno oko.<br>
-
-Dlatego musisz zrobić dwoje oczu przez postawienie kamienia rozdzielającego.
-<p> Jeżeli tego nie zrobisz biały zagra tam, gdzie powinien zagrać czarny.
-<p>
-Przysłowie Go - <b>Punkt decydujący dla Ciebie jest punktem decydującym dla przeciwnika.</b><p>
-
-<hr>
-Gdzie powinieneś postawić kamień rozdzielający na diagramie poniżej?<p>
-{% problem nigan-iki-2 %}
-{% endproblem %}<p>
-Jak widać Twoje terytorium jest zbyt małe, czeka Cię ciężkie życie.
-<p> Zawsze próbuj zbudować wystarczająco duże terytorium i nie dać się otoczyć.
-<p>
-
-<hr>
-A co z przykładem poniżej?<p>
-<img src="./../static/images/alive.gif"><p>
-W tym przykładzie nie musisz kłaść kamienia rozdzielającego.
-<p> Gdy biały zrobi ruch w <b>a</b>, odpowiesz grając w <b>b</b>.
-  <br>
-
-  Gdy biały zagra w <b>b</b>, odpowiesz w <b>a</b>.
-<p>
-
-Możesz więc zawsze zrobić dwoje oczu, gdy biały zaatakuje.
-<p> Jednak gdybyś zignorował atak białych, biały zajmie punkty <b>a</b> i
-  <b>b</b> równocześnie. <br>
-
-  W takim przypadku będziesz miał tylko jedno oko i zginiesz.
+<section>
+	<p>A co z przykładem poniżej?<p>
+	{% diagram 3-alive %}
+	{% enddiagram %}
+	<p>W tym przykładzie nie musisz kłaść kamienia rozdzielającego.</p>
+	<p> Gdy biały zrobi ruch w <b>A</b>, odpowiesz grając w <b>B</b>.
+	  <br>Gdy biały zagra w <b>B</b>, odpowiesz w <b>A</b>.</p>
+	<p>Możesz więc zawsze zrobić dwoje oczu, gdy biały zaatakuje.</p>
+	<p>Jednak gdybyś zignorował atak białych, biały zajmie oba punkty <b>A</b> i <b>B</b>.<br>
+	<p>W takim przypadku będziesz miał tylko jedno oko i zginiesz.</p>
+</section>
