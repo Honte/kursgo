@@ -1,31 +1,60 @@
-(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
-AW[ed][df][ef][ff]AB[ce][cf][dg][eg][fg][gf][ge]
-(;B[ee];W[de]
-(;B[dd];W[fe]
-(;B[fd];W[ee]
-(;B[ec]C[dobrze@red])
-(;B[tt];W[ec]C[błąd@blue]))
-(;B[fc];W[ec]C[błąd@blue])
-(;B[tt];W[fc]C[błąd@blue]))
-(;B[tt];W[dd]C[błąd@blue]))
-(;B[dd];W[fd]
-(;B[ee];W[fe]C[błąd@blue])
-(;B[fe];W[ee]C[błąd@blue])
-(;B[gc];W[dc]C[błąd@blue])
-(;B[tt];W[gc]C[błąd@blue]))
-(;B[de];W[fd]
-(;B[ee];W[fe]C[błąd@blue])
-(;B[fe];W[ee]C[błąd@blue])
-(;B[gc];W[dc]C[błąd@blue])
-(;B[tt];W[gc]C[błąd@blue]))
-(;B[fd];W[dd]
-(;B[ee];W[de]C[błąd@blue])
-(;B[de];W[ee]C[błąd@blue])
-(;B[cc];W[fc]C[błąd@blue])
-(;B[tt];W[cc]C[błąd@blue]))
-(;B[fe];W[dd]
-(;B[ee];W[de]C[błąd@blue])
-(;B[de];W[ee]C[błąd@blue])
-(;B[cc];W[fc]C[błąd@blue])
-(;B[tt];W[cc]C[błąd@blue]))
-(;B[tt];W[dd]C[błąd@blue]))
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[9]KM[0.00]
+AW[ed][df][ef][ff]AB[ce][ge][cf][gf][dg][eg][fg]
+(;B[ee]
+;W[de]
+(;B[dd]
+;W[fe]
+(;B[fd]
+;W[ee]
+(;B[ec]C[[OK\]])
+(;B[]
+;W[ec]C[Biały uciekł.]))
+(;B[fc]
+;W[ec]C[Biały uciekł.])
+(;B[]
+;W[fc]C[Biały uciekł.]))
+(;B[]
+;W[dd]C[Biały uciekł.]))
+(;B[dd]
+;W[fd]
+(;B[ee]
+;W[fe]C[Biały uciekł.])
+(;B[fe]
+;W[ee]C[Biały uciekł.])
+(;B[gc]
+;W[dc]C[Biały uciekł.])
+(;B[]
+;W[gc]C[Biały uciekł.]))
+(;B[de]
+;W[fd]
+(;B[ee]
+;W[fe]C[Biały uciekł.])
+(;B[fe]
+;W[ee]C[Biały uciekł.])
+(;B[gc]
+;W[dc]C[Biały uciekł.])
+(;B[]
+;W[gc]C[Biały uciekł.]))
+(;B[fd]
+;W[dd]
+(;B[ee]
+;W[de]C[Biały uciekł.])
+(;B[de]
+;W[ee]C[Biały uciekł.])
+(;B[cc]
+;W[fc]C[Biały uciekł.])
+(;B[]
+;W[cc]C[Biały uciekł.]))
+(;B[fe]
+;W[dd]
+(;B[ee]
+;W[de]C[Biały uciekł.])
+(;B[de]
+;W[ee]C[Biały uciekł.])
+(;B[cc]
+;W[fc]C[Biały uciekł.])
+(;B[]
+;W[cc]C[Biały uciekł.]))
+(;B[]
+;W[dd]C[Biały uciekł.]))
