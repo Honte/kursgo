@@ -1,10 +1,8 @@
 #! /bin/bash
 
-# environment variables that should be set:
-# KURS_DST  - desitantion directory
-
-if [[ -z $KURS_DST ]]; then
-  echo "Environemtn variable KURS_DST must be set."
+if [[ -z $1 ]]; then
+  echo "Syntax:"
+  echo "  $0 destination_path"
   exit 1
 fi
 
@@ -17,4 +15,4 @@ fi
 jekyll build || exit 2
 
 # copy
-rsync -a --delete-delay _site/ $KURS_DST
+rsync -a --delete-delay _site/ $1
