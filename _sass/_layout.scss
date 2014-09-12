@@ -126,6 +126,7 @@ section {
   blockquote {
     padding: 10px 10px 10px 30px;
     font-style: italic;
+    font-weight: bold;
   }
 
   blockquote:before {
@@ -133,6 +134,7 @@ section {
     margin: 0 0 0 -30px;
     font-size: 0.9em;
     font-style: normal;
+    font-weight: normal;
     color: #7c7c7c;
     content: 'Przys\142owie Go:';
   }
