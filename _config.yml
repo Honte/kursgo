@@ -15,4 +15,3 @@ pages: ./_lessons
 # default layout for lessons
 layout: "lesson"
 
-exclude: [ import-utils ]
