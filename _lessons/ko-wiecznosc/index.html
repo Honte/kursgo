@@ -1,103 +1,92 @@
 ---
 title: Ko (wieczność)
 ---
-Teraz przedstawię kolejna regułę zwaną <b>Ko</b>, co po japońsku znaczy wieczność.
-<p> Jest to ostatnia reguła do zapamiętania. Jeśli przeczytasz tą stronę, to będziesz znał wszystkie reguły Go.
-<p> Zrozumienie idei Ko jest nieco trudniejsze niż dotychczas poznanych zasad.<br>
-Powodzenia!
+<section>
+    <p>Teraz przedstawię kolejna regułę zwaną <b>Ko</b>, co po japońsku znaczy wieczność.
+        Jest to ostatnia reguła do zapamiętania. Jeśli przeczytasz tą stronę, to będziesz znał wszystkie reguły Go.
+        Zrozumienie idei Ko jest nieco trudniejsze niż dotychczas poznanych zasad.</p>
 
-<hr>
-<table width=100% border=0>
-<tr><td width=220>
-{% problem 0 %}
-{% endproblem %}<p>
-<font class=czerwony>* Biały nie może tutaj odpowiedzieć.</font>
-</td><td>
+    <p>Powodzenia!</p>
 
-Jeden biały kamień jest w Atari. <b>Zabij go!</b>
-      <p> Zrobiłeś to? Więc teraz spójrz uważnie na planszę.
-      <p> Zwróć uwagę, że czarny kamień, który właśnie położyłeś jest w Atari!<br>
+    {% freeplay 0 %}
+        <p>Jeden biały kamień jest w Atari. <b>Zabij go!</b></p>
 
-        Wygląda na to, że biały może go zabić...
-      <p> Co by się stało, gdyby biały to uczynił?<br>
-        Na planszy powstała by pozycja identyczna jak dwa ruchy wcześniej.<br>
-        Zatem czarny i biały mogą zabijać sobie wzajemnie jeden kamień bez końca!
-      <p> Dlatego <b>ruchy, które powodują powtórzenie się sytuacji na planszy są zabronione</b>.
-        <br>
-Ta reguła zwana jest <b>Ko (wieczność)</b>.
-      <p> Na powyższej planszy możesz wykonywać również ruchy białego.
-          Spróbuj zatem odbić czarny kamień w środku.<br>
+        <p>Zrobiłeś to? Więc teraz spójrz uważnie na planszę.</p>
 
-Zobaczysz wtedy informację - <b><font class=czerwony>Illegal(Ko)</font></b>.<p>
+        <p>Zwróć uwagę, że czarny kamień, który właśnie położyłeś jest w Atari!<br>
+            Wygląda na to, że biały może go zabić...</p>
 
-</td></tr></table>
+        <p>Co by się stało, gdyby biały to uczynił?<br>
+            Na planszy powstała by pozycja identyczna jak dwa ruchy wcześniej.<br>
+            Zatem czarny i biały mogą zabijać sobie wzajemnie jeden kamień bez końca!</p>
 
-Czy białe kiedykolwiek zdobędą czarny kamień?
-<p> Mogą, ale wpierw muszą zagrać gdzie indziej.<br>
-  W ten sposób stworzą na planszy inną sytuację. Zatem
-  <b>możesz z powrotem zabrać kamień w ko, jeżeli najpierw zagrasz gdzie indziej</b>
-<p> Wykonaj jakikolwiek ruch białych na planszy powyżej.<br>
+        <p>Dlatego <b>ruchy, które powodują powtórzenie się sytuacji na planszy są zabronione</b>.<br>
+            Ta reguła zwana jest <b>Ko (wieczność)</b>.</p>
 
-  I w ten sam sposób ruch czarnych.
-<p>Teraz znowu jest ruch białych. I teraz biały może zabrać czarny kamień.<br>
-  Spokojnie możesz to uczynić na planszy powyżej.
-<p> Teraz kolej czarnego. Jednakże nie może on znowu wziąć białego natychmiast. <br>
-  Proszę, sprawdź na planszy. Zobaczysz informację - <font class=czerwony><b>Illegal(Ko)</b>.</font><br>
-  Może on wziąć ponownie kamień dopiero wówczas, gdy wpierw postawi kamień w inne miejsce, tak jak zrobił to biały.
-<p>
+        <p>Na planszy po lewej możesz wykonywać również ruchy białego.<br>
+            Spróbuj zatem odbić czarny kamień w środku.<br>
+            Zobaczysz wtedy informację - <b>Ruch niedozwolony - KO</b></p>
+    {% endfreeplay %}
 
-  Na powyższej planszy możesz wykonywać ruchy i białego i czarnego.<br>
-  Trenując na niej zrozum proszę koncepcję zakazującej powtórzeń reguły Ko.<br>
-  Możesz cofnąć ruch przez naciśnięcie przycisku <b>undo</b>.
-<p>
+    <p>Czy białe kiedykolwiek zdobędą czarny kamień?</p>
 
-<hr>
-<table width=100% border=0>
-<tr><td width=220>
-{% problem 1 %}
-{% endproblem %}<p>
-</td><td>
+    <p>Mogą, ale wpierw muszą zagrać gdzie indziej.<br>
+        W ten sposób stworzą na planszy inną sytuację. Zatem
+        <b>możesz z powrotem zabrać kamień w ko, jeżeli najpierw zagrasz gdzie indziej</b></p>
 
-A jak wygląda Ko w prawdziwej walce?
-      <p> Spójrz na lewo. Pięć czarnych kamieni w lewym górnym rogu jest prawie martwych.
-        Najpierw zabierz biały kamień grając w <b>E8</b>.<br>
-        Rozpoczęło się Ko!
-      <p> Pięć białych kamieni jest teraz w niebezpieczeństwie, a białe nie mogą wziąć czarnego
-        kamienia grając <b>D8</b> ponieważ zabrania tego reguła Ko.
-      <p> Grają zatem taki ruch, którego czarne nie mogą zignorować - w <b>E2</b>. <br>
+    <p>Wykonaj jakikolwiek ruch białych na planszy powyżej.<br>
+        I w ten sam sposób ruch czarnych.</p>
 
-        Taki ruch nazywany jest <b>groźbą Ko</b>. <br>
-        Ponieważ osiem czarnych kamieni zginęłoby po zignorowaniu tej groźby, czarne niechętnie
-        grają w <b>E1.</b>
-      <p>
-        Teraz białe mogą wziąć kamień w Ko grając w <b>D8</b><br>
-        W tej sytuacji czarne znajdują groźbę dla białych w  <b>B4</b>.
-        Jeżeli białe odpowiedzą w <b>A4</b>, czarne wezmą ponownie kamień w Ko
-        grając w <b>E8</b>
+    <p>Teraz znowu jest ruch białych. I teraz biały może zabrać czarny kamień.<br>
+        Spokojnie możesz to uczynić na planszy powyżej.</p>
 
-      <p> Tak wygląda w czasie partii granie Ko.
-      <p>
+    <p>Teraz kolej czarnego. Jednakże nie może on znowu wziąć białego natychmiast. <br>
+        Proszę, sprawdź na planszy. Zobaczysz informację - <b>Ruch niedozwolony - KO</b>.<br>
+        Może on wziąć ponownie kamień dopiero wówczas, gdy wpierw postawi kamień w inne miejsce, tak jak zrobił to
+        biały.</p>
 
-</td></tr></table>
 
-To Ko zakończy się zabiciem pięciu kamieni na górze planszy, gdy jeden z przeciwników
-nie odpowie na ruch w inne miejsce.<br>
-Dla przegranego utrata pięciu kamieni jest naprawdę duża.<br>
-W zamian otrzymuje jednak dwa kolejne ruchy w innej części planszy
-i może tam dużo zyskać.
-<p> Ważną rzeczą jest: wygrać Ko, znaleźć groźbę - miejsce, gdzie możesz dużo zyskać
-robiąc 2 kolejne ruchy. Jeżeli przeciwnik pozwoli, kontynuuj Ko. Jeżeli zignoruje
-groźbę, możesz wykonać dwa kolejne ruchy, podczas gdy przeciwnik wygrywa Ko.
+    <p>Na powyższej planszy możesz wykonywać ruchy i białego i czarnego.<br>
+        Trenując na niej zrozum proszę koncepcję zakazującej powtórzeń reguły Ko.<br>
+        Możesz cofnąć ruch przez naciśnięcie przycisku <b>Cofnij</b>.</p>
+</section>
 
-<p>
+<section>
+    <h3>A jak wygląda Ko w prawdziwej walce?</h3>
 
-<hr>
+    {% freeplay 1 %}
+        <p>Spójrz na lewo. Pięć czarnych kamieni w lewym górnym rogu jest prawie martwych.
+            Najpierw zabierz biały kamień grając w <b>E8</b>.<br>Rozpoczęło się Ko!</p>
 
-Granie Ko jest trudne, ponieważ Ko wywołuje wiele strategicznych posunięć na całej planszy.<br>
-Dla początkujących, <b>najważniejsze do zapamiętania jest to, że ruchy, które powodują powstanie
-na planszy tej samej sytuacji są zabronione.</b>.
-<p>
-<img src="./../static/images/ko.gif" alt="Ko animation"> <font size=-2>Ta animacja została grzecznościowo udostępniona przez Daniela Dheaud.</font>
-<p> To właśnie zasada Ko nie dopuszcza, aby taka sytuacja się przydarzyła.
-<p> Ko nie jest właściwie zasadą restrykcyjną, a niewątpliwie czyni grę bardziej ekscytującą.
+        <p>Pięć białych kamieni jest teraz w niebezpieczeństwie, a białe nie mogą wziąć czarnego
+            kamienia grając <b>D8</b> ponieważ zabrania tego reguła Ko.
+            Grają zatem taki ruch, którego czarne nie mogą zignorować - w <b>E2</b>. </p>
 
+        <p>Taki ruch nazywany jest <b>groźbą Ko</b>. <br>
+            Ponieważ osiem czarnych kamieni zginęłoby po zignorowaniu tej groźby, czarne niechętnie
+            grają w <b>E1.</b></p>
+
+        <p>Teraz białe mogą wziąć kamień w Ko grając w <b>D8</b><br>
+            W tej sytuacji czarne znajdują groźbę dla białych w <b>B4</b>.
+            Jeżeli białe odpowiedzą w <b>A4</b>, czarne wezmą ponownie kamień w Ko
+            grając w <b>E8</b>.</p>
+
+        <p>Tak wygląda w czasie partii granie Ko.</p>
+    {% endfreeplay%}
+
+    <p>To Ko zakończy się zabiciem pięciu kamieni na górze planszy, gdy jeden z przeciwników
+        nie odpowie na ruch w inne miejsce.<br>
+        Dla przegranego utrata pięciu kamieni jest naprawdę duża.<br>
+        W zamian otrzymuje jednak dwa kolejne ruchy w innej części planszy
+        i może tam dużo zyskać.</p>
+
+    <p>Ważną rzeczą jest: wygrać Ko, znaleźć groźbę - miejsce, gdzie możesz dużo zyskać
+        robiąc 2 kolejne ruchy. Jeżeli przeciwnik pozwoli, kontynuuj Ko. Jeżeli zignoruje
+        groźbę, możesz wykonać dwa kolejne ruchy, podczas gdy przeciwnik wygrywa Ko.</p>
+
+    <p>Granie Ko jest trudne, ponieważ Ko wywołuje wiele strategicznych posunięć na całej planszy.<br>
+    Dla początkujących, <b>najważniejsze do zapamiętania jest to, że ruchy, które powodują powstanie
+    na planszy tej samej sytuacji są zabronione.</b>.</p>
+
+    <p>Ko nie jest właściwie zasadą restrykcyjną, a niewątpliwie czyni grę bardziej ekscytującą.</p>
+</section>

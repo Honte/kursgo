@@ -162,10 +162,14 @@ var board_click_default = function(x,y) {
     if (this.config.noClick) return false;
 	if(!this.kifuReader || !this.kifuReader.node) return false;
 
-    var isValid = this.kifuReader.game.isValid(x, y, null),
+    var c = this.kifuReader.game.turn,
+        moveValidityStatus = this.kifuReader.game.play(x, y, c, true),
         kifuPathIndex = -1;
 
-    if (!isValid) return false;
+    if (typeof moveValidityStatus == 'number') {
+        quickDispatchEvent.call(this, "illegal", { error: moveValidityStatus });
+        return false;
+    }
 
     // try to find if the move is included in kifu
     this.kifuReader.node.children.forEach(function (child, index) {
@@ -186,7 +190,8 @@ var board_click_default = function(x,y) {
         appendNodeAndPlay.call(this, new WGo.KNode({
             move: {
                 x: x,
-                y: y
+                y: y,
+                c: c
             }
         }));
         quickDispatchEvent.call(this, "played");
@@ -248,7 +253,12 @@ var board_click_default = function(x,y) {
     }
 };
 
-function quickDispatchEvent(event) {
+/**
+ * Quick event dispatcher
+ * @param {String} event
+ * @param {Object} [extraParams]
+ */
+function quickDispatchEvent(event, extraParams) {
     var params = {
         type: event,
         target: this,
@@ -257,6 +267,15 @@ function quickDispatchEvent(event) {
         path: this.kifuReader.path,
         change: this.kifuReader.change
     };
+
+    if (extraParams) {
+        for (var p in extraParams) {
+            if (extraParams.hasOwnProperty(p)) {
+                params[p] = extraParams[p];
+            }
+        }
+    }
+
     this.dispatchEvent(params);
 }
 

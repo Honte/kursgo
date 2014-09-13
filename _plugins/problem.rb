@@ -19,13 +19,21 @@ module Jekyll
       CGI::escapeHTML File.open(path, "r:UTF-8", &:read)
     end
 
-    def template(sgf, cls, description)
-      "<div class=\"sgf #{cls}\" data-sgf=\"#{sgf}\">
-        <div class=\"description\">#{description}</div>
-        <div class=\"board\">Jeżeli chcesz rozwiązywać problemy interaktywnie, musisz włączyć JavaScript.</div>
+    def template(sgf, params={})
+      params[:status] ||= "Twój ruch."
+      params[:reset] ||= "Jeszcze raz."
+      params[:fallback] ||= "Jeżeli chcesz rozwiązywać problemy interaktywnie, musisz włączyć JavaScript."
+
+      back = "<a class=\"back button\">#{params[:back]}</a>" if params[:back]
+      reset = "<a class=\"reset button\">#{params[:reset]}</a>" unless params[:noreset]
+
+      "<div class=\"sgf #{params[:cls]}\" data-sgf=\"#{sgf}\">
+        <div class=\"description\">#{params[:description]}</div>
+        <div class=\"board\">#{params[:fallback]}</div>
         <div class=\"status\">
-          <p>Twój ruch.</p>
-          <a class=\"button\">Jeszcze raz</a>
+          <p>#{params[:status]}</p>
+          #{back}
+          #{reset}
         </div>
       </div>"
     end
@@ -33,7 +41,11 @@ module Jekyll
 
   class ProblemBlock < SgfBlock
     def render(context)
-      template(read_sgf(context), "problem", super)
+      template(
+        read_sgf(context),
+        cls: "problem",
+        description: super
+      )
     end
   end
 
@@ -48,13 +60,25 @@ module Jekyll
 
   class FreePlayBlock < SgfBlock
     def render(context)
-      template(read_sgf(context), "freeplay", super)
+      template(
+        read_sgf(context),
+        cls: "freeplay",
+        description: super,
+        reset: "Od początku",
+        back: "Cofnij",
+        status: "Ruch czarnego."
+      )
     end
   end
 
   class BlackPlayBlock < SgfBlock
     def render(context)
-      template(read_sgf(context), "blackplay", super)
+      template(
+        read_sgf(context),
+        cls: "blackplay",
+        description: super,
+        reset: "Od początku"
+      )
     end
   end
 end

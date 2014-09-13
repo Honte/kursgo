@@ -172,8 +172,12 @@ section {
       display: none;
     }
 
-    a:before {
+    a.reset:before {
       content: '\21bb';
+    }
+
+    a.back:before {
+      content: '\2190';
     }
   }
 
@@ -201,6 +205,21 @@ section {
   .description {
     float: right;
     width: 45%;
+  }
+}
+
+.freeplay {
+  .board {
+    width: 40%;
+  }
+  .status {
+    width: 40%;
+    float: left;
+    text-align: center;
+  }
+  .description {
+    float: right;
+    width: 55%;
   }
 }
 
@@ -283,6 +302,26 @@ section {
     .top-navigation {
       display: block;
     }
+}
+
+@include media-query(750px) {
+  .freeplay {
+    .description {
+      float: none;
+      width: 100%;
+      text-align: center;
+    }
+
+    .board {
+      float: none;
+      width: 100%;
+      margin: 10px auto;
+    }
+
+    .status {
+      width: 100%;
+    }
+  }
 }
 
 @include media-query(620px) {
