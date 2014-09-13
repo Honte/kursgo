@@ -92,7 +92,7 @@
         });
     }
 
-    function decorateFreePlay(board, sgf, api) {
+    function decorateBlackPlay(board, sgf, api) {
         var hasCompleted = false,
             counter = 0,
             player;
@@ -230,6 +230,65 @@
         triggerReset();
     }
 
+    function decorateFreePlay(board, sgf, api) {
+        var hasCompleted = false,
+            counter = 0,
+            player;
+
+        player = new WGo.BasicPlayer(board, {
+            sgf: sgf,
+            markLastMove: false,
+            enableKeys: false,
+            enableWheel: false,
+            autoRespond: false,
+            showNotInKifu: true,
+            showVariations: false,
+            responseDelay: 0,
+            layout: {top: [], right: [], left: [], bottom: []}
+        });
+
+//        function triggerSuccess(comment) {
+//            api.success('Brawo! ' + comment);
+//            hasCompleted = true;
+//            player.config.showNotInKifu = false;
+//        }
+//
+//        function triggerReset() {
+//            api.reset('Twój ruch.');
+//            counter = 0;
+//            hasCompleted = false;
+//            player.config.showNotInKifu = true;
+//        }
+//
+//        /**
+//         * Event handler for responded event.
+//         * Checks if all white stones have been caught. If yes  - triggers success, otherwise - updates status text .
+//         * @param {Object} params
+//         */
+//        function updateStatus(params) {
+//            if (hasCompleted) {
+//                return;
+//            }
+//
+//            var whiteCount = params.position.schema.reduce(function (sum, el) { return sum + (el === WGo.W); }, 0);
+//
+//            counter += 1;
+//
+//            api.progress("Ruchów: " + counter + "<br>Kamieni do zbicia: " + whiteCount);
+//
+//            if (whiteCount === 0) {
+//                triggerSuccess("Udało Ci się zbić wszystkie kamienie białego. Liczba wykonanych ruchów: " + counter);
+//            }
+//        }
+//
+//        player.addEventListener('responded', updateStatus);
+//
+//        api.onClick(function () {
+//            player.reset();
+//            triggerReset();
+//        });
+    }
+
     global.addEventListener('load', function () {
         var elements = document.getElementsByClassName('sgf');
 
@@ -238,6 +297,8 @@
                 decorateWgo(element, decorateProblem);
             } else if (element.classList.contains('diagram')) {
                 decorateDiagram(element);
+            } else if (element.classList.contains('blackplay')) {
+                decorateWgo(element, decorateBlackPlay);
             } else if (element.classList.contains('freeplay')) {
                 decorateWgo(element, decorateFreePlay);
             }
