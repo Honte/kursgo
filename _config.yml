@@ -1,7 +1,6 @@
 # Site settings
 title: Interaktywny Kurs Go
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
+description: >
   Interaktywny kurs Go.
 url: "http://kursgo.pl" # the base hostname & protocol for your site
 
@@ -13,5 +12,9 @@ port: 8000
 pages: ./_lessons
 
 # default layout for lessons
-layout: "lesson"
+layout: default
 
+# jekyll-assets configuration
+assets:
+# js_compressor:  uglifier
+  css_compressor: scss

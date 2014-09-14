@@ -1,0 +1,8 @@
+<select class="lesson-selector">
+    <option value="/">Wprowadzenie</option>
+    {% assign i = 1 %}
+    {% for lesson in site.lessons %}
+    <option value="{{ lesson.url | replace: 'index.html', '' }}"{% if lesson.title == page.title %} selected{% endif %}>{{ i }}. {{ lesson.title }}</option>
+    {% assign i = i | plus: 1 %}
+    {% endfor %}
+</select>

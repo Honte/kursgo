@@ -1,0 +1,12 @@
+#= require wgo/wgo
+#= require wgo/kifu
+#= require wgo/sgfparser
+#= require wgo/player
+#= require wgo/basicplayer
+#= require wgo/basicplayer.component
+#= require wgo/basicplayer.infobox
+#= require wgo/basicplayer.commentbox
+#= require wgo/basicplayer.control
+#= require wgo/player.editable
+#= require wgo/scoremode
+#= require wgo/player.permalink

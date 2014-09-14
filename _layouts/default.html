@@ -1,23 +1,62 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  {% include head.html %}
+    <title>{% if page.title %}{{ site.title + " " + page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ site.description }}">
 
-  <body>
-    <div class="wrapper">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    {% stylesheet main %}
+    {% stylesheet wgo.player.css %}
+    {% javascript wgo %}
+    {% javascript main %}
+</head>
+
+<body>
+<div class="wrapper">
 
     <header>
-        <h1><a href="/">Interaktywny Kurs Go</a></h1>
-
-        {% if page.title %}<h2>{{ page.title }}</h2>{% endif %}
+        <h1>Interaktywny Kurs Go</h1>
     </header>
 
     {% include side.html %}
 
     <article id="content">
+        {% if page.title %}
+        <section class="title">
+            <h2>{{ page.title }}</h2>
+        </section>
+        {% endif %}
+
+        <section class="top-navigation">
+            {% include select.html %}
+        </section>
+
         {{ content }}
+
+        {% if page.prev_lesson or page.next_lesson %}
+        <section class="bottom-navigation">
+            <p class="prev_lesson">
+                {% if page.prev_lesson %}
+                    {% lesson_button page.prev_lesson Wstecz %}
+                {% else %}
+                    <a href="/" class="button">Wprowadzenie</a>
+                {% endif %}
+            </p>
+
+            {% if page.next_lesson %}
+            <p class="next_lesson">
+                {% lesson_button page.next_lesson Dalej %}
+            </p>
+            {% endif %}
+        </section>
+        {% endif %}
     </article>
 
-    </div>
-  </body>
+</div>
+</body>
 </html>
