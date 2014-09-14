@@ -1,5 +1,6 @@
-(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
-AW[bc][be][cd][dd][ed][fb][fc][gd]AB[ab][bb][ca][cb][db][dc][ea][ec]
-(;B[eb]C[dobrze@red])
-(;B[eb];W[eb]C[błąd - Nie zapominaj o oczach@blue])
-(;B[tt];W[eb]C[błąd - D9 staje się fałszywym okiem.@blue]))
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[9]KM[0.00]
+AW[fb][bc][fc][cd][dd][ed][gd][be]AB[ca][ea][ab][bb][cb][db][dc][ec]
+(;B[eb]C[[OK\]])
+(;B[]
+;W[eb]LB[da:A]C[Pole A staje się fałszywym okiem.]))

@@ -1,7 +1,12 @@
-(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
-AW[dc][ec][fc][gc][bc][be][cc][ce][cg][bd][ae][dg][eg][fg][hd][he][hf][bg]AB[be][cd][cf][dd][ed][fd][ee][df][ef][ff][ge]
-(;B[bf];W[gf]
-(;B[gd]C[dobrze - C5 jest martwy.@red])
-(;B[tt];W[gd]C[błąd - F5 jest fałszywym okiem.@blue]))
-(;B[de];W[bf]C[błąd - masz fałszywe oko.@blue])
-(;B[tt];W[bf]C[błąd@blue]))
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[9]KM[0.00]
+AW[bc][cc][dc][ec][fc][gc][bd][hd][ae][ce][he][hf][bg][cg][dg][eg][fg]AB[cd][dd][ed][fd][be][ee][ge][cf][df][ef][ff]
+(;B[bf]
+;W[gf]
+(;B[gd]LB[ce:A]C[[OK\]Kamień A jest martwy.])
+(;B[]
+;W[gd]LB[fe:A]C[Pole A jest fałszywym okiem.]))
+(;B[de]
+;W[bf]LB[ce:A]C[Masz fałszywe oko w A.])
+(;B[]
+;W[bf]))

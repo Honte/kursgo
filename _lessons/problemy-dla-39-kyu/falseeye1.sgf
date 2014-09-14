@@ -1,7 +1,12 @@
-(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
-AW[cd][ce][cf][dc][dg][dh][ec][eh][fc][fh][gd][ge][hf][hg]AB[dd][de][df][ed][ef][eg][fe][fg][gf]
-(;B[gg]C[dobrze - masz dwoje prawdziwych oczu@red])
-(;B[fd];W[gg]C[błąd - F4 staje się fałszywym okiem.@blue])
-(;B[ee];W[gg]C[błąd - Nie zapominaj o oczach.@blue])
-(;B[ff];W[gg]C[błąd - Nie zapominaj o oczach.@blue])
-(;B[tt];W[gg]C[błąd - F4 jest teraz fałszywym okiem.@blue]))
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[9]KM[0.00]
+AW[dc][ec][fc][cd][gd][ce][ge][cf][hf][dg][hg][dh][eh][fh]AB[dd][ed][de][fe][df][ef][gf][eg][fg]
+(;B[gg]C[[OK\]Masz dwoje prawdziwych oczu.])
+(;B[fd]
+;W[gg]LB[ff:A]C[Pole A staje się fałszywym okiem.])
+(;B[ee]
+;W[gg]C[Nie zapominaj o oczach.])
+(;B[ff]
+;W[gg]C[Nie zapominaj o oczach.])
+(;B[]
+;W[gg]LB[ff:A]C[Pole A jest teraz fałszywym okiem.]))
