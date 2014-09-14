@@ -9,8 +9,12 @@ module Jekyll
       @markup = markup.strip
     end
 
-    def render_link(url, cls, anchor)
-        "<a href=\"#{url}\" class=\"#{cls}\">#{anchor}</a>"
+    def render_link(url, anchor, cls = [])
+        if cls.size > 0
+            "<a href=\"#{url}\" class=\"#{cls.join(" ")}\">#{anchor}</a>"
+        else
+            "<a href=\"#{url}\">#{anchor}</a>"
+        end
     end
 
     def render(context)
@@ -34,18 +38,18 @@ module Jekyll
         anchor = markup.join " "
         anchor = lesson["title"] if anchor.empty?
 
-        cls = ""
-        cls = cls + "active" if current_lesson["title"] == lesson["title"]
+        cls = []
+        cls << "active" if current_lesson["title"] == lesson["title"]
 
-        render_link url, cls, anchor
+        render_link url, anchor, cls
     end
   end
 
   class LessonButtonTag < LessonLinkTag
-      def render_link(url, cls, anchor)
-          super(url, ["button", cls].join(" "), anchor)
+      def render_link(url, anchor, cls)
+          super(url, anchor, ["button"].concat(cls))
       end
-    end
+  end
 end
 
 Liquid::Template.register_tag('lesson_link', Jekyll::LessonLinkTag)
