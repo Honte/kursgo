@@ -27,7 +27,59 @@
             STONE:         2,
             SUICIDE:       3,
             KO:            4
+        },
+
+        OPAQUE_SHELL = {
+            stone:  {
+                draw: function (args, board) {
+                    var previousAlpha = this.globalAlpha;
+                    this.globalAlpha = 0.4;
+                    WGo.Board.drawHandlers.SHELL.stone.draw.call(this, args, board);
+                    this.globalAlpha = previousAlpha;
+                }
+            },
+            shadow: WGo.Board.drawHandlers.SHELL.shadow
         };
+
+    function addHoverFunctionality(player) {
+        var lastPos = null;
+
+        function clearLastPos() {
+            if (lastPos) {
+                player.board.removeObject(lastPos);
+                lastPos = null;
+            }
+        }
+
+        player.board.addEventListener('mousemove', function (x, y) {
+            if (player.config.noClick) {
+                clearLastPos();
+                return;
+            }
+
+            var game = player.kifuReader.game,
+                object = {
+                    x: x,
+                    y: y,
+                    c: game.turn,
+                    type: OPAQUE_SHELL
+                };
+
+            if (game.position.get(x, y) == 0) { // no stone
+                if (!lastPos || lastPos.x !== object.x || lastPos.y !== object.y || lastPos.c !== object.c) {
+                    clearLastPos();
+                    player.board.addObject(object);
+                    lastPos = object;
+                }
+            } else {
+                clearLastPos();
+            }
+
+        });
+
+        player.board.addEventListener('click', clearLastPos);
+        player.board.addEventListener('mouseout', clearLastPos);
+    }
 
     /**
      * Functionality decorator and proxy for WGo Player handlers.
@@ -121,8 +173,7 @@
     }
 
     function decorateBlackPlay(board, sgf, api) {
-        var hasCompleted = false,
-            counter = 0,
+        var counter = 0,
             player;
 
         player = new WGo.BasicPlayer(board, {
@@ -140,15 +191,13 @@
 
         function triggerSuccess(comment) {
             api.success(STRINGS.CORRECT + comment);
-            hasCompleted = true;
-            player.config.showNotInKifu = false;
+            player.config.noClick = true;
         }
 
         function triggerReset() {
             api.reset(STRINGS.YOUR_TURN);
             counter = 0;
-            hasCompleted = false;
-            player.config.showNotInKifu = true;
+            player.config.noClick = false;
         }
 
         /**
@@ -157,10 +206,6 @@
          * @param {Object} params
          */
         function updateStatus(params) {
-            if (hasCompleted) {
-                return;
-            }
-
             var whiteCount = params.position.schema.reduce(function (sum, el) { return sum + (el === WGo.W); }, 0);
 
             counter += 1;
@@ -174,6 +219,8 @@
 
         player.addEventListener('responded', updateStatus);
 
+        addHoverFunctionality(player);
+
         api.onReset(function () {
             player.reset();
             triggerReset();
@@ -181,25 +228,21 @@
     }
 
     function decorateProblem(board, sgf, api) {
-        var hasCompleted = false,
-            player;
+        var player;
 
         function triggerSuccess(comment) {
             api.success(STRINGS.CORRECT + comment);
-            hasCompleted = true;
-            player.config.showNotInKifu = false;
+            player.config.noClick = true;
         }
 
         function triggerFail(comment) {
             api.failure(STRINGS.FAIL + comment);
-            hasCompleted = true;
-            player.config.showNotInKifu = false;
+            player.config.noClick = true;
         }
 
         function triggerReset() {
             api.reset(STRINGS.YOUR_TURN);
-            hasCompleted = false;
-            player.config.showNotInKifu = true;
+            player.config.noClick = false;
         }
 
         /**
@@ -208,12 +251,6 @@
          * @param {Object} params
          */
         function isProblemSolved(params) {
-
-            // do nothing if already solved/failed the problem
-            if (hasCompleted) {
-                return;
-            }
-
             // fail when the move is valid but was not found in kifu
             if (params.type === 'notinkifu') {
                 triggerFail(params.node.comment || '');
@@ -254,6 +291,8 @@
         player.addEventListener('responded', blackToPlay);
         player.addEventListener('nomoremoves', isProblemSolved);
         player.addEventListener('notinkifu', isProblemSolved);
+
+        addHoverFunctionality(player);
 
         triggerReset();
     }
@@ -311,6 +350,8 @@
         player.addEventListener('played', updateStatus);
         player.addEventListener('illegal', illegalMove);
         player.setCoordinates(true);
+
+        addHoverFunctionality(player);
 
         api.onReset(function () {
             player.reset();
