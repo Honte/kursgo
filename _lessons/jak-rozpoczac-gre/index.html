@@ -1,61 +1,57 @@
 ---
 title: Jak rozpocząć grę?
 ---
-Dotychczas uczyłeś się, jak zabijać kamienie.<br>
-Na początku prawdziwej gry musisz jednak grać na planszy, na której nic nie ma.
-<p>
+<section>
+    <P>Dotychczas uczyłeś się, jak zabijać kamienie.<br>
+        Na początku prawdziwej gry musisz jednak grać na planszy, na której nic nie ma.</p>
 
-<hr>
-Celem w Go jest zdobycie jak największego terytrium. Na początku twoim zadaniem będzie otoczenie
-terytorium, czyli pustych miejsc.
-      <p>
-<table border=0>
-<tr><td width=310>
-{% problem 0 %}
-{% endproblem %}<p>
-</td>
-    <td> Na diagramie z lewej są dwie czarne grupy: jedna w lewym górnym rogu, druga na prawym brzegu.<br>
-        Obie zawierają po 9 miejsc, lub 9 <b>punktów</b>.
-      <p>Biała grupa w centrum ma także 9 punktów. Miejsca całkowicie otoczone przez kamienie
-        tego samego koloru nazywamy <b>terytorium</b>.
-      <p>Terytorium każdej z trzech grup wynosi teraz 9 punktów.
-        Policzmy, ile kamieni potrzeba do otoczenia terytorium.
-      <ul>
+    <p>Celem w Go jest zdobycie jak największego terytrium. Na początku twoim zadaniem będzie otoczenie
+        terytorium, czyli pustych miejsc.</p>
 
-<li>w rogu - 6 kamieni
-<li>na brzegu - 9 kamieni
-<li>w centrum - 12 kamieni
-</ul>
+    {% diagram 0 %}
+        <p>Na diagramie z lewej są dwie czarne grupy: jedna w lewym górnym rogu, druga na prawym brzegu.<br>
+        Obie zawierają po 9 miejsc, lub 9 <b>punktów</b>.</p>
+        <p>Biała grupa w centrum ma także 9 punktów. Miejsca całkowicie otoczone przez kamienie
+            tego samego koloru nazywamy <b>terytorium</b>.</p>
 
-Ja widać otaczanie terytorium w rogu jest najbardziej efektywne, a otaczanie terytorium
-w centrum najmniej efektywne
-<p>Dlatego na początku gry obie strony próbują zdobyć rogi planszy.
-Zagrania w centrum są rzadko spotykane.
-    </td></tr></table>
+        <p>Terytorium każdej z trzech grup wynosi teraz 9 punktów.
+            Policzmy, ile kamieni potrzeba do otoczenia terytorium.</p>
 
-<hr>
-Na planszy poniżej możesz zobaczyć początek prawdziwej gry rozegranej na planszy 13x13.
-      Kolejne ruchy uzyskasz klikając przycisk <b>Next</b>. Do cofnięcia ruchu służy przycisk <b>Undo</b>.
-      <p><table border=0>
-<tr><td width=310>
+        <ul>
+            <li>w rogu - 6 kamieni</li>
+            <li>na brzegu - 9 kamieni</li>
+            <li>w centrum - 12 kamieni</li>
+        </ul>
 
-{% problem 1 %}
-{% endproblem %}<p>
-</td>
-    <td>  Wpierw przeciwnicy zajmują pozycje w pobliżu dwóch rogów.
-      <p> Miejsce położenia pierwszego kamienia czarnych nazywamy <b>punktem 3-3 </b>
-        ( lub<b> san-san</b>), gdyż znajduje się na przecięciu 3 linii pionowej z 3 poziomą
-        licząc od strony rogu. Ten ruch stwarza pozycję gwarantującą utrzymanie rogu.
-      <p> W następnym ruchu białe również grają w punkt 3-3.
-      <p> Miejsce następnego czarnego kamienia jest zwane <b>punktem 4-4</b> ( lub <b>hoshi</b>)
-        Miejsce to jest oznaczone małym czarnym kółkiem. Ten kamień otacza większe pole w rogu
-        niż zagrany w punkt 3-3. Jednak zdecydowanie łatwiej go zaatakować, ponieważ pomiędzy
-        nim, a brzegiem planszy jest dużo pól.
-      <p> Czwarty ruch białych jest również popularny.
-      <p>
+        <p>Ja widać otaczanie terytorium w rogu jest najbardziej efektywne, a otaczanie terytorium
+        w centrum najmniej efektywne</p>
+        <p>Dlatego na początku gry obie strony próbują zdobyć rogi planszy.
+            Zagrania w centrum są rzadko spotykane.</p>
+    {% enddiagram%}
+</section>
 
-        Oczywiście możesz zagrać w dowolne miejce na planszy, jeżeli ruch nie jest zabroniony.
-        Jednak naturalny przebieg gry to z rogów ku brzegom, ewentualnie do centrum.
-    </td></tr></table>
-      <p> Pomimo że rogi to najlepsze miejsca do zdobycia terytorium, niewskazane są ruchy
-        takie jak <b>M2</b> lub <b>N1</b>, ponieważ ich oddziaływanie jest zbyt małe.
+<section>
+    <p>Na planszy poniżej możesz zobaczyć początek prawdziwej gry rozegranej na planszy 13x13.</p>
+
+    {% review 1 %}
+        <p>Wpierw przeciwnicy zajmują pozycje w pobliżu dwóch rogów.</p>
+        <p>Miejsce położenia pierwszego kamienia czarnych nazywamy <b>punktem 3-3 </b>
+            ( lub<b> san-san</b>), gdyż znajduje się na przecięciu 3 linii pionowej z 3 poziomą
+            licząc od strony rogu. Ten ruch stwarza pozycję gwarantującą utrzymanie rogu.</p>
+
+        <p>W następnym ruchu białe również grają w punkt 3-3.</p>
+
+        <p>Miejsce następnego czarnego kamienia jest zwane <b>punktem 4-4</b> ( lub <b>hoshi</b>)
+            Miejsce to jest oznaczone małym czarnym kółkiem. Ten kamień otacza większe pole w rogu
+            niż zagrany w punkt 3-3. Jednak zdecydowanie łatwiej go zaatakować, ponieważ pomiędzy
+            nim, a brzegiem planszy jest dużo pól.</p>
+
+        <p>Czwarty ruch białych jest również popularny.</p>
+
+        <p>Oczywiście możesz zagrać w dowolne miejce na planszy, jeżeli ruch nie jest zabroniony.
+            Jednak naturalny przebieg gry to z rogów ku brzegom, ewentualnie do centrum.</p>
+
+        <p>Pomimo że rogi to najlepsze miejsca do zdobycia terytorium, niewskazane są ruchy
+            takie jak <b>M2</b> lub <b>N1</b>, ponieważ ich oddziaływanie jest zbyt małe.</p>
+    {% endreview %}
+</section>

@@ -4,9 +4,9 @@
 #= require wgo/player
 #= require wgo/basicplayer
 #= require wgo/basicplayer.component
-#= require wgo/basicplayer.infobox
+#= require wgo/basicplayer.infobox.custom
 #= require wgo/basicplayer.commentbox
-#= require wgo/basicplayer.control
+#= require wgo/basicplayer.control.custom
 #= require wgo/player.editable
 #= require wgo/scoremode
 #= require wgo/player.permalink

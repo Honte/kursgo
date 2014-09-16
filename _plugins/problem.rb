@@ -58,6 +58,15 @@ module Jekyll
     end
   end
 
+  class ReviewBlock < SgfBlock
+    def render(context)
+      "<div class=\"sgf review\" data-sgf=\"#{read_sgf(context)}\">
+        <div class=\"board\">Jeżeli chcesz przeglądać gry, musisz włączyć JavaScript.</div>
+        <div class=\"description\">#{super}</div>
+      </div>"
+    end
+  end
+
   class FreePlayBlock < SgfBlock
     def render(context)
       template(
@@ -87,3 +96,4 @@ Liquid::Template.register_tag('problem', Jekyll::ProblemBlock)
 Liquid::Template.register_tag('diagram', Jekyll::DiagramBlock)
 Liquid::Template.register_tag('freeplay', Jekyll::FreePlayBlock)
 Liquid::Template.register_tag('blackplay', Jekyll::BlackPlayBlock)
+Liquid::Template.register_tag('review', Jekyll::ReviewBlock)

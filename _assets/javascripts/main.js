@@ -39,7 +39,61 @@
                 }
             },
             shadow: WGo.Board.drawHandlers.SHELL.shadow
-        };
+        },
+
+        TIP_MARKER = {
+            stone: {
+                draw: function(args, board) {
+                    var xr = board.getX(args.x),
+                        yr = board.getY(args.y),
+                        sr = board.stoneRadius;
+
+                    this.strokeStyle = "#EF3C21"; //board.obj_arr[args.x][args.y][0].c == WGo.W ? "#356E9E" : "#57ADFD";
+                    this.lineWidth = args.lineWidth || 3;
+                    this.beginPath();
+                    this.arc(xr-board.ls, yr-board.ls, sr/2, 0, 2*Math.PI, true);
+                    this.stroke();
+                }
+            }
+        },
+
+        TIP_REGEXP = /([A-T][0-9]{1,2})/g,
+        GOBAN_ALPHABET = 'ABCDEFGHJKLMNOPQRST';
+
+    function addTips(element, player) {
+        element.innerHTML = element.innerHTML.replace(TIP_REGEXP, "<abbr>$1</abbr>");
+
+        var tips = element.getElementsByTagName('abbr'),
+            lastPos;
+
+        function showTip(e) {
+            var coords = e.target.innerHTML;
+
+            hideTip();
+            lastPos = {
+                x: GOBAN_ALPHABET.indexOf(coords[0]),
+                y: player.board.size - parseInt(coords.substr(1), 10),
+                type: TIP_MARKER
+            };
+            player.board.addObject(lastPos);
+        }
+
+        function hideTip() {
+            if (lastPos) {
+                player.board.removeObject(lastPos);
+                lastPos = null;
+            }
+        }
+
+        if (tips) {
+            Array.prototype.forEach.call(tips, function (tip) {
+                tip.addEventListener('mouseenter', showTip);
+                tip.addEventListener('mouseout', hideTip);
+            })
+        }
+
+        return tips.length;
+    }
 
     function addHoverFunctionality(player) {
         var lastPos = null;
@@ -102,6 +156,7 @@
         var board =       element.getElementsByClassName('board')[0],
             sgf =         element.getAttribute('data-sgf'),
             status =      element.getElementsByClassName('status')[0],
+            description = element.getElementsByClassName('description')[0],
             statusText =  status.getElementsByTagName('p')[0],
             buttonBack =  status.getElementsByClassName('back')[0],
             buttonReset = status.getElementsByClassName('reset')[0];
@@ -153,26 +208,40 @@
             onBack: function (callback, scope) {
                 bindToButton(buttonBack, callback, scope);
             }
-        });
+        }, description);
     }
 
     function decorateDiagram(element) {
-        var board = element.getElementsByClassName('board')[0];
+        var board = element.getElementsByClassName('board')[0],
+            description = element.getElementsByClassName('description')[0],
+            player = new WGo.BasicPlayer(board, {
+                sgf: element.getAttribute('data-sgf'),
+                markLastMove: false,
+                enableKeys: false,
+                enableWheel: false,
+                autoRespond: false,
+                showNotInKifu: false,
+                noClick: true,
+                showNextMove: true,
+                layout: {top: [], right: [], left: [], bottom: []}
+            });
 
-        new WGo.BasicPlayer(board, {
-            sgf: element.getAttribute('data-sgf'),
-            markLastMove: false,
-            enableKeys: false,
-            enableWheel: false,
-            autoRespond: false,
-            showNotInKifu: false,
-            noClick: true,
-            showNextMove: true,
-            layout: {top: [], right: [], left: [], bottom: []}
-        });
+        addTips(description, player);
     }
 
-    function decorateBlackPlay(board, sgf, api) {
+    function decorateReview(element) {
+        var board = element.getElementsByClassName('board')[0],
+            description = element.getElementsByClassName('description')[0],
+            player = new WGo.BasicPlayer(board, {
+                sgf: element.getAttribute('data-sgf'),
+                layout: {top: ["InfoBox"], right: [], left: [], bottom: ["Control"]}
+            });
+
+        player.setCoordinates(true);
+        addTips(description, player);
+    }
+
+    function decorateBlackPlay(board, sgf, api, description) {
         var counter = 0,
             player;
 
@@ -220,6 +289,7 @@
         player.addEventListener('responded', updateStatus);
 
         addHoverFunctionality(player);
+        addTips(description, player);
 
         api.onReset(function () {
             player.reset();
@@ -227,7 +297,7 @@
         });
     }
 
-    function decorateProblem(board, sgf, api) {
+    function decorateProblem(board, sgf, api, description) {
         var player;
 
         function triggerSuccess(comment) {
@@ -294,10 +364,14 @@
 
         addHoverFunctionality(player);
 
+        if (addTips(description, player) > 0) {
+            player.setCoordinates(true);
+        }
+
         triggerReset();
     }
 
-    function decorateFreePlay(board, sgf, api) {
+    function decorateFreePlay(board, sgf, api, description) {
         var player = new WGo.BasicPlayer(board, {
             sgf: sgf,
             markLastMove: false,
@@ -352,6 +426,7 @@
         player.setCoordinates(true);
 
         addHoverFunctionality(player);
+        addTips(description, player);
 
         api.onReset(function () {
             player.reset();
@@ -383,6 +458,8 @@
                 decorateWgo(element, decorateBlackPlay);
             } else if (element.classList.contains('freeplay')) {
                 decorateWgo(element, decorateFreePlay);
+            } else if (element.classList.contains('review')) {
+                decorateReview(element);
             }
         });
 

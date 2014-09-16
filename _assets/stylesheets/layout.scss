@@ -155,6 +155,13 @@ section {
   box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.05);
   position: relative;
 
+  abbr {
+    cursor: default;
+    color: #6c9922;
+    border: dotted #6c9922;
+    border-width: 0 0 2px 0;
+  }
+
   .board {
     margin: 10px 10px 10px 0;
     width: 50%;
@@ -205,6 +212,16 @@ section {
   .description {
     float: right;
     width: 45%;
+  }
+}
+
+.review {
+  .board {
+    min-height: 400px;
+  }
+
+  .wgo-player-info-box-wrapper {
+    width: 100%;
   }
 }
 
