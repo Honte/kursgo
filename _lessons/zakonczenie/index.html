@@ -1,55 +1,65 @@
 ---
 title: Zakończenie
 ---
-Tutaj nauczysz się jak określić, że gra jest skończona i jak obliczyc zdobyte terytorim.
-Będziemy do tego używać planszy 5x5.
-<hr>
-<img src="./../static/images/end1.gif" width=158 height=158 align=left>
-W tym miejscu każdy z graczy wykonał 5 ruchów i gra jest uważana za zakończoną.<p>
-Czarny zdobył 5 punktów z lewej strony, biały 10 punktów z prawej.
-<p> Tak więc biały wygrał z 5 punktów.
-<p>Mozesz obliczyć terytorium zliczając miejsca przecięcia linii pionowych z poziomymi.<p>
-Narożniki i krawędzie są również terytorium.<br>
-Pamiętaj, że kamenie nie są wliczane do terytorium. <br clear=left>
+<section>
+    <p>Tutaj nauczysz się jak określić, że gra jest skończona i jak obliczyc zdobyte terytorim.
+Będziemy do tego używać planszy 5x5.</p>
 
-<hr>
-<img src="./../static/images/end2.gif" width=158 height=158 align=left>
-Gra jest uznawana za zakończoną, kiedy obydwie strony powiedzą "pas", ponieważ nie
-ma juz więcej ruchów do wykonania.
-<p> Dlaczego partia na diagramie powyżej jest uznana za zakończoną?
-<p>
-Kontynuacją powyższej partii byłyby prawdopodobnie ruch czarnego na terytorium białego.<p>
-Jak widać biały może łatwo obronić się przed inwazją. Zobacz na diagramie z lewej.<p>
-Tak więc czarny nie będzie robił takich ruchów.<p>
-<br clear=left>
+    {% diagram diag-1 %}
+        <p>W tym miejscu każdy z graczy wykonał 5 ruchów i gra jest uważana za zakończoną.</p>
+        Czarny zdobył 5 punktów z lewej strony, biały 10 punktów z prawej.
+        <p>Tak więc biały wygrał z 5 punktów.</p>
 
-<hr>
-<img src="./../static/images/end3.gif" width=158 height=158 align=left>
-Co się stanie, jeżeli zrobisz ruch wewnątrz własnego terytorium?
+        <p>Mozesz obliczyć terytorium zliczając miejsca przecięcia linii pionowych z poziomymi.</p>
 
-<p> Tym ruchem redukujesz swoje terytorium o 1 punkt. Nikt nie chce tego robić!
-<p>
-Dlatego sytuacja na pierwszym diagramie jest uważana za koniec gry.<p>
-(Chociaż czasami zdarza się, że powinieneś zagrać wewnątrz własnego terytorium dla
-zapewnienia sobie dwojga oczu, lub dla wzmocnienia swojej ściany.)<p>
-<br clear=left>
+        <p>Narożniki i krawędzie są również terytorium.<br>
+            Pamiętaj, że kamenie nie są wliczane do terytorium.</p>
+    {% enddiagram %}
 
-<hr>
-<img src="./../static/images/end4.gif" width=158 height=158 align=left>
-To także jest koniec gry. <br>
-Czarny ma 5 punktów, biały 6 punktów - białe wygrały jednym punktem.
-<p> Co z dwoma punktami w środku? Nazywamy je "<b>Dame</b>" - punkty neutralne
-   - które nie należą do nikogo.
+    {% diagram diag-2 %}
+        <p>Gra jest uznawana za zakończoną, kiedy obydwie strony powiedzą "pas", ponieważ nie
+            ma juz więcej ruchów do wykonania.</p>
 
-<p> Możesz tam zagrać, jeśli chcesz, jednak ani nic nie zyskasz, ani nie stracisz
-<p>
-<br clear=left>
-<hr>
-<b>Kiedy gra się kończy?</b>
-<p> - Kiedy obie strony nie widzą już dla siebie miejsca na sensowny ruch i pasują<br>
-Wtedy obliczają sobie wzajemnie terytorium i zdobywca większego wygrywa.<br>
-Twój końcowy wynik to Twoje terytorium na planszy plus zabite przez Ciebie kamienie (jeńcy).
-<p> - Jeżeli jedna ze stron dochodzi w trakcie gry do wniosku, że cokolwiek by nie uczyniła
-nie jest w stanie wygrać partii, może grę poddać.<br>
-<p>W przeciwieństwie do wielu innych gier poddanie jest zakończeniem honorowym. Granie, gdy
-jest się skazanym na porażkę nie jest.
+        <p>Dlaczego partia na diagramie powyżej jest uznana za zakończoną?</p>
+
+        <p>Kontynuacją powyższej partii byłyby prawdopodobnie ruch czarnego na terytorium białego.</p>
+
+        <p>Jak widać biały może łatwo obronić się przed inwazją. Zobacz na diagramie z lewej.</p>
+
+        <p>Tak więc czarny nie będzie robił takich ruchów.</p>
+    {% enddiagram %}
+
+    {% diagram diag-3 %}
+        <p>Co się stanie, jeżeli zrobisz ruch wewnątrz własnego terytorium?</p>
+
+        <p>Tym ruchem redukujesz swoje terytorium o 1 punkt. Nikt nie chce tego robić!</p>
+
+        <p>Dlatego sytuacja na pierwszym diagramie jest uważana za koniec gry.</p>
+
+        <p>(Chociaż czasami zdarza się, że powinieneś zagrać wewnątrz własnego terytorium dla
+            zapewnienia sobie dwojga oczu, lub dla wzmocnienia swojej ściany.)</p>
+    {% enddiagram %}
+
+    {% diagram diag-4 %}
+        <p>To także jest koniec gry. <br>
+            Czarny ma 5 punktów, biały 6 punktów - białe wygrały jednym punktem.</p>
+
+        <p>Co z dwoma punktami w środku? Nazywamy je "<b>Dame</b>" - punkty neutralne
+            - które nie należą do nikogo.</p>
+
+        <p> Możesz tam zagrać, jeśli chcesz, jednak ani nic nie zyskasz, ani nie stracisz.</p>
+    {% enddiagram %}
+</section>
+
+<section>
+<h3>Kiedy gra się kończy?</h3>
+    <ul>
+        <li>Kiedy obie strony nie widzą już dla siebie miejsca na sensowny ruch i pasują<br>
+            Wtedy obliczają sobie wzajemnie terytorium i zdobywca większego wygrywa.<br>
+            Twój końcowy wynik to Twoje terytorium na planszy plus zabite przez Ciebie kamienie (jeńcy).</li>
+        <li>Jeżeli jedna ze stron dochodzi w trakcie gry do wniosku, że cokolwiek by nie uczyniła
+            nie jest w stanie wygrać partii, może grę poddać.<br>
+            W przeciwieństwie do wielu innych gier poddanie jest zakończeniem honorowym. Granie, gdy
+                jest się skazanym na porażkę nie jest.</li>
+    </ul>
+</section>
