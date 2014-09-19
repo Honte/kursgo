@@ -226,7 +226,9 @@
                 layout: {top: [], right: [], left: [], bottom: []}
             });
 
-        addTips(description, player);
+        if (addTips(description, player) > 0) {
+            player.setCoordinates(true);
+        }
     }
 
     function decorateReview(element) {
