@@ -216,19 +216,20 @@
             description = element.getElementsByClassName('description')[0],
             player = new WGo.BasicPlayer(board, {
                 sgf: element.getAttribute('data-sgf'),
-                markLastMove: false,
+                markLastMove: true,
                 enableKeys: false,
                 enableWheel: false,
                 autoRespond: false,
                 showNotInKifu: false,
                 noClick: true,
-                showNextMove: true,
                 layout: {top: [], right: [], left: [], bottom: []}
             });
 
         if (addTips(description, player) > 0) {
             player.setCoordinates(true);
         }
+
+        player.last();
     }
 
     function decorateReview(element) {
