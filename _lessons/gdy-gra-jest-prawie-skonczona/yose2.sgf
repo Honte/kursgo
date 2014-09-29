@@ -1,16 +1,23 @@
-(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
-AW[ee][ef][eg][eh][fc][fd][ga][gb][ge][di]AB[dd][de][df][dg][dh][eb][ec][ed][fa][fb]
-(;B[ci];W[ei]C[Sprawa jeszcze nie zakończona@black,{B[ch],dobrze - zapobiegłeś przecięciu.@red])
-(;B[bh]C[dobrze - zapobiegłeś przecięciu.@red])
-(;B[cg]C[dobrze - zapobiegłeś przecięciu.@red])
-(;B[ah];W[ch]
-(;B[bi];W[bh]
-(;B[ai];W[ag]C[błąd@blue])
-(;B[tt];W[ai]C[błąd@blue]))
-(;B[tt];W[bi]C[błąd@blue]))
-(;B[bi];W[ch]
-(;B[bh]C[zadziałało ale nie było dobrze@red])
-(;B[cg];W[bh]C[błąd@blue])
-(;B[tt];W[bh]C[błąd@blue]))
-(;B[tt];W[ch]C[Biały tnie Twoje kamienie!@black,{B[bi],W[bh],{B[ai],W[ah],błąd@blue])
-(;B[tt];W[ai]C[błąd@blue]))
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[9]KM[0.00]
+CR[di]AW[ga][gb][fc][fd][ee][ge][ef][eg][eh][di]AB[fa][eb][fb][ec][dd][ed][de][df][dg][dh]
+(;B[ci]
+;W[ei]C[Sprawa jeszcze nie zakończona]
+(;B[ch]C[[OK\]Zapobiegłeś przecięciu])
+(;B[bh]C[[OK\]Zapobiegłeś przecięciu])
+(;B[cg]C[[OK\]Zapobiegłeś przecięciu])
+(;B[bi]
+;W[ch]
+(;B[bh]C[Zadziałało, ale można lepiej.])
+(;B[]
+;W[bh]))
+(;B[]
+;W[ch]C[Biały tnie Twoje kamienie.]
+;B[bi]
+;W[bh]
+;B[ai]
+;W[ah]))
+(;B[ei]
+;W[fi])
+(;B[]
+;W[ci]))

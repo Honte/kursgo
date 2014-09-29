@@ -231,7 +231,10 @@ var board_click_default = function(x,y) {
                 delay.call(this, function () {
                     appendNodeAndPlay.call(this, response);
                     quickDispatchEvent.call(this, "responded");
-                    quickDispatchEvent.call(this, "nomoremoves");
+
+                    if (!response.children.length) {
+                        quickDispatchEvent.call(this, "nomoremoves");
+                    }
                 }, this.config.responseDelay);
             } else {
                 quickDispatchEvent.call(this, "noresponse");
