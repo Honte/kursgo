@@ -1,4 +1,6 @@
-(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[9]KM[0.00]
 AW[cf][ef]AB[de][dg]
-(;B[df]C[dobrze - czarne się połączyły@red])
-(;B[tt];W[df]C[błąd - białe sie połączyły@blue]))
+(;B[df]C[[OK\]Czarne się połączyły.])
+(;B[]
+;W[df]C[Białe sie połączyły.]))

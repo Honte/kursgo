@@ -1,10 +1,36 @@
-(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
-AW[ef][eg][fh]AB[cg][dg][fg][eh]
-(;B[gh]C[Dobrze - zabiłeś F2@red])
-(;B[dh];W[gg]C[błąd - F3 jest stracony@blue])
-(;B[di];W[gg]C[błąd - F3 jest stracony@blue])
-(;B[ei];W[gg]C[błąd - F3 jest stracony@blue])
-(;B[ch];W[gg]C[błąd - F3 jest stracony@blue])
-(;B[ci];W[gg]C[błąd - F3 jest stracony@blue])
-(;B[fi];W[gh]C[błąd - E2 jest stracony@blue])
-(;B[tt];W[dh]C[błąd - E2 jest stracony@blue]))
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[9]KM[0.00]
+AW[ef][eg][fh]AB[cg][dg][fg][eh]DD[fi]
+(;B[gh]C[[OK\]Czarny łapie F2.])
+(;B[]
+;W[dh]C[Biały łapie E2.])
+(;B[dh]
+;W[gg]C[Biały łapie F3.])
+(;B[ch]
+;W[gg]C[Biały łapie F3.])
+(;B[ci]
+;W[gg]C[Biały łapie F3.])
+(;B[di]
+;W[gg]C[Biały łapie F3.])
+(;B[ei]
+;W[gg]C[Biały łapie F3.])
+(;B[fi]
+;W[gh]C[F2 ucieka.])
+(;B[gi]DD[gi]
+;W[dh]
+(;B[ei]
+;W[di]
+(;B[fi]
+;W[gh]
+(;B[hi]
+;W[hh]
+(;B[ii]
+;W[ih])
+(;B[]
+;W[ii]))
+(;B[]
+;W[hi]))
+(;B[]
+;W[fi]))
+(;B[]
+;W[ei])))
