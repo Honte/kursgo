@@ -1,2 +1,80 @@
-(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
-)
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[9]KM[0.00]
+
+;B[ee]C[Zagranie w centrum, które ma wpływ na wszystkie rogi!]
+;W[ef]C[Biały atakuje kontaktowo.]
+;B[df]C[Czarny przykleił się do kamienia atakujacego.]
+;W[de]C[Przecięcie dwóch kamieni. Ponieważ biały jest także przecięty, zażarta walka jest nie do uniknięcia!]
+;B[cf]C[Wydłużenie sie z jednej strony w celu przygotowania się do walki.
+Jeżeli czarny zagra teraz na D6 będzie mógł zabić D5 w drabince.]
+;W[dd]C[Było by to bardzo złe dla białego.
+Więc biały wydłuża się od D5.]
+;B[ed]C[Atak na dwa białe kamienie z równoczesnym wzmocnieniem E5.]
+;W[dc]C[Obrona przez wydłużenie.]
+;B[ff]C[Atari na E4!]
+;W[eg]C[Wydłużenie E4.]
+;B[fg]C[Nadal atak na 2 białe kamienie.]
+;W[eh]C[Ucieczka...]
+;B[ch]C[Otaczanie trzech białych kamieni od lewej dolnej.]
+;W[fe]C[Przecięcie czarnych kamieni.]
+;B[fd]C[Atari na tnący kamień.]
+;W[ge]C[Ucieczka....]
+;B[gd]C[Dalszy atak]
+;W[gf]C[Ucieczka w kierunku dolnej części planszy.
+Ucieczka jest równocześnie atakiem na kamienie F4 i F3.]
+;B[gg]C[Czarny podejmuje walkę.]
+;W[hg]C[Przyduszenie!]
+;B[bd]C[Czarny zmienia zamiar. 
+Teraz miekko otacza trzy białe kamienie górnej lewej strony.
+W tym samym czasie zabezpiecza grupe z dolnej lewej strony.]
+;W[fb]C[Biały wydłuża się w kierunku górnej części planszy
+i atakuje cztery czarne kamienie.]
+;B[he]C[Atari na trzy białe kamienie.]
+;W[hf]C[Oczywiście zabezpieczenie ich.]
+;B[gb]C[Próba utworzenia terytorium w górnej prawej cześci
+z jednoczesnym atakiem na F8.]
+;W[fc]C[Obrona F8.
+Później będzie można dokonać inwazji w G7.]
+;B[gc]C[Zatkanie dziury w G7.
+Teraz górna prawa strona wygląda na terytorium czarnych.]
+;W[bc]C[Biały buduje terytorium w lewej górnej części.]
+;B[cc]C[Czarny wskakuje pomiędzy dwa białe kamienie.]
+;W[cd]C[Biały atakuje agresora od zewnątrz.
+Atari!]
+;B[cb]C[Czarny inwaduje głębiej.]
+;W[be]C[Biały prawie zabija B6.]
+;B[ec]C[Atak na F7 i F8.]
+;W[db]C[Biały nie może ich bronić ze względu na inwazje z lewej,
+więc oddaje dwa kamienie odcinając w zamian piony,
+które dokonaly inwazji.]
+;B[eb]C[Dwa białe kamienie są prawie zabite.]
+;W[bb]C[Teraz dwa czarne kamienie są prawie martwe.]
+;B[bf]C[Zabezpieczenie dolnego lewego rogu.]
+;W[hd]C[Złapanie H5.]
+;B[hc]C[Czarny oddaje H5 ale zabezpiecza się przed dalszą inwazją.
+Teraz H6 jest w Atari.]
+;W[ie]C[Zabicie H5.]
+;B[dh]C[Powiększenie dolnego lewego terytorium
+przy jednoczesnym ataku na trzy białe kamienie.]
+;W[ic]C[Biały ciągle próbuje inwazji na górze.]
+;B[ib]C[Obrona
+J7 jest w Atari.]
+;W[id]C[Połączenie J7.]
+;B[ce]C[Poprzez atak na B5, czarny wymusza na białym zabicie B6.]
+;W[ad]C[Zabicie B6.]
+;B[ei]TR[ef][eg][eh]C[Czarny próbuje inwazji z prawej,
+oddając jednoczesnie 3 kamienie (oznaczone trójkątami).]
+;W[fi]C[Zapobieżenie inwazji.]
+;B[di]C[Połączenie E1.]
+;W[fh]C[Teraz dla bezpieczeństwa biały musi zabić trzy czarne kamienie.]
+;B[dg]C[Czarny nadal atakuje pięć białych kamieni.
+Gdyby następnie zagrał w G2 zabiłby je.]
+;W[gh]C[Zabicie trzech kamieni zapewnia bezpieczeństwo.]
+;B[af]C[Powiększenie lewego dolnego rogu...]
+;W[ea]C[Groźba uratowania dwóch białych kamieni.]
+;B[fa]C[Zabicie ich.
+E9 jest w Atari.]
+;W[da]C[Połączenie E9.]
+;B[ae]C[Atari na B5.]
+;W[bd]C[Białe łączą go.
+Teraz gra jest zakończona.])

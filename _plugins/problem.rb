@@ -63,6 +63,7 @@ module Jekyll
       "<div class=\"sgf review\" data-sgf=\"#{read_sgf(context)}\">
         <div class=\"board\">Jeżeli chcesz przeglądać gry, musisz włączyć JavaScript.</div>
         <div class=\"description\">#{super}</div>
+        <div class=\"comments\"></div>
       </div>"
     end
   end

@@ -60,8 +60,13 @@
         TIP_REGEXP = /([A-T][0-9]{1,2})/g,
         GOBAN_ALPHABET = 'ABCDEFGHJKLMNOPQRST';
 
-    function addTips(element, player) {
-        element.innerHTML = element.innerHTML.replace(TIP_REGEXP, "<abbr>$1</abbr>");
+    function addTips(element, player, string) {
+
+        if (!string) {
+            string = element.innerHTML;
+        }
+
+        element.innerHTML = string.replace(TIP_REGEXP, "<abbr>$1</abbr>");
 
         var tips = element.getElementsByTagName('abbr'),
             lastPos;
@@ -93,6 +98,19 @@
         }
 
         return tips.length;
+    }
+
+    function addComments(element, player) {
+        function updateComments(params) {
+            if (params.node.comment) {
+                addTips(element, player, params.node.comment);
+            } else {
+                element.innerHTML = '';
+            }
+        }
+
+        player.addEventListener('update', updateComments);
+        player.addEventListener('kifuloaded', updateComments);
     }
 
     function addHoverFunctionality(player) {
@@ -235,6 +253,7 @@
     function decorateReview(element) {
         var board = element.getElementsByClassName('board')[0],
             description = element.getElementsByClassName('description')[0],
+            comments = element.getElementsByClassName('comments')[0],
             player = new WGo.BasicPlayer(board, {
                 sgf: element.getAttribute('data-sgf'),
                 layout: {top: ["InfoBox"], right: [], left: [], bottom: ["Control"]}
@@ -242,6 +261,7 @@
 
         player.setCoordinates(true);
         addTips(description, player);
+        addComments(comments, player);
     }
 
     function decorateBlackPlay(board, sgf, api, description) {

@@ -10,3 +10,4 @@
 #= require wgo/player.editable
 #= require wgo/scoremode
 #= require wgo/player.permalink
+#= require wgo.pl.js
