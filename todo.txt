@@ -3,6 +3,8 @@ Ogółem:
     do czytelnika) jest dopasowana do targetu :)
     - Część opisów problemów lub pozycji na planszy można przenieść do sgf-a
     żeby czytelnik nie widział wszystkiego od razu
+    - Zweryfikować sgf-y czy pokrywają wszystkie ścieżki i czy wszystkie
+    prawidłowe odpowiedzi są oznaczone
 
 Epilog
     - Informacje z go.art.pl/jak-zaczac powinny trafić tutaj. Dodatkowo trzeba
