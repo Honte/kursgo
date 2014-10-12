@@ -1,0 +1,15 @@
+Ogółem:
+    - Poprawić teksty. Nie wiem czy aktualna forma (sposób zwracania się kursu
+    do czytelnika) jest dopasowana do targetu :)
+    - Część opisów problemów lub pozycji na planszy można przenieść do sgf-a
+    żeby czytelnik nie widział wszystkiego od razu
+
+Epilog
+    - Informacje z go.art.pl/jak-zaczac powinny trafić tutaj. Dodatkowo trzeba
+    te informacje zaktualizować - m.in. dodać takie serwery jak online-go.com (nova.gs) lub tygem.
+
+Pomysły na usprawnienia:
+    - Na koniec dać możliwość zagrania z komputerem w Atari Go
+    - Dać możliwość zagrania z komputerem w normalne Go - tak jak np. po kursie
+    na online-go.com (http://online-go.com/learn-to-play-go#done)
+
