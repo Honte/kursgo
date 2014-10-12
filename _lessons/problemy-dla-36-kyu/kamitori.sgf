@@ -1,9 +1,15 @@
-(;GM[1]FF[4]CA[UTF-8]AP[kursgo.pl converter]ST[2]SZ[9]
-AW[be][cd][cf][ch][df][dg]AB[bf][bg][bh][cg][gd][gg]
-(;B[dh];W[eh]
-(;B[ci]C[dobrze@red])
-(;B[di];W[ei]
-(;B[ci]C[dobrze@red])
-(;B[tt];W[ci]C[błąd@blue]))
-(;B[tt];W[di]C[błąd@blue]))
-(;B[tt];W[dh]C[błąd@blue]))
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[9]KM[0.00]
+AW[cd][be][cf][df][dg][ch]AB[gd][bf][bg][cg][gg][bh]
+(;B[dh]
+;W[eh]
+(;B[ci]C[[OK\]])
+(;B[di]
+;W[ei]
+(;B[ci]C[[OK\]])
+(;B[]
+;W[ci]))
+(;B[]
+;W[di]))
+(;B[]
+;W[dh]))
