@@ -1,4 +1,4 @@
-﻿/*!
+﻿﻿﻿/*!
  * Copyright (c) 2013 Jan Prokop
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this 
@@ -54,10 +54,13 @@ var WGo = {
 }
 
 // browser detection - can be handy
-WGo.opera = navigator.userAgent.search(/(opera)(?:.*version)?[ \/]([\w.]+)/i) != -1;
-WGo.webkit = navigator.userAgent.search(/(webkit)[ \/]([\w.]+)/i) != -1;
-WGo.msie = navigator.userAgent.search(/(msie) ([\w.]+)/i) != -1;
-WGo.mozilla = navigator.userAgent.search(/(mozilla)(?:.*? rv:([\w.]+))?/i) != -1 && !WGo.webkit && !WGo.msie;
+var nua = navigator.userAgent;
+WGo.opera = nua.search(/(opera)(?:.*version)?[ \/]([\w.]+)/i) != -1;
+WGo.webkit = nua.search(/(webkit)[ \/]([\w.]+)/i) != -1;
+WGo.msie = nua.search(/(msie) ([\w.]+)/i) != -1;
+WGo.mozilla = nua.search(/(mozilla)(?:.*? rv:([\w.]+))?/i) != -1 && !WGo.webkit && !WGo.msie;
+WGo.android = (nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('Android ') > -1 && nua.indexOf('AppleWebKit') > -1);
+WGo.androidChrome38 = WGo.android && nua.indexOf('Chrome/38') > -1;
 
 // translating function
 WGo.t = function(str) {
@@ -1035,38 +1038,36 @@ var drawField = function(x,y) {
 }
 
 var getMousePos = function(e) {
-	var top = 0, 
-		left = 0, 
-		obj = this.grid.element,
-		x, y;
-    
-	while (obj && obj.tagName != 'BODY') {
-		top += obj.offsetTop;
-		left += obj.offsetLeft;
-		obj = obj.offsetParent;
-	}
-	
-	// Calculate the x, y coordinates from mouse position,
-	// taking into account that the board may be scaled for
-	// the sake of pixel density.
-	
-	x = e.pageX * this.pixelRatio;
-	x -= left * this.pixelRatio;
-	x -= this.left;
-	x /= this.fieldWidth;
-	x = Math.round(x);
+    var target = e.target,
+        board = target.getBoundingClientRect(),
+        boardX = target.offsetLeft,
+        boardY = target.offsetTop,
+        x, y;
 
-	y = e.pageY * this.pixelRatio;
-	y -= top * this.pixelRatio;
-	y -= this.top;
-	y /= this.fieldHeight;
-	y = Math.round(y);
+    while (target = target.offsetParent) {
+        boardX += target.offsetLeft;
+        boardY += target.offsetTop;
+    }
+
+    // dirty hack for chrome 38 which returns different values than expected
+    // I was unable to google the problem (maybe it's not the problem but
+    // I wasn't able to google the reason why it works this way either)
+    if (WGo.androidChrome38) {
+        boardX += document.body.scrollLeft;
+        boardY += document.body.scrollTop;
+    }
+
+    x = (e.pageX - boardX) / board.width;
+    y = (e.pageY - boardY) / board.height;
+
+    x = Math.floor(x * this.size);
+    y = Math.floor(y * this.size);
 
 	return {
 		x: x >= this.size ? -1 : x,
 		y: y >= this.size ? -1 : y
 	};
-}
+};
 
 var updateDim = function() {
 	this.element.style.width = (this.width / this.pixelRatio) + "px";
