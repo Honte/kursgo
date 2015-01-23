@@ -1042,6 +1042,12 @@ var getMousePos = function(e) {
         board = target.getBoundingClientRect(),
         boardX = target.offsetLeft,
         boardY = target.offsetTop,
+        horizontalFieldSize = this.fieldWidth / this.pixelRatio,
+        verticalFieldSize = this.fieldHeight / this.pixelRatio,
+        horizontalMargin = board.width - (this.size * horizontalFieldSize),
+        verticalMargin = board.height - (this.size * verticalFieldSize),
+        horizontalSize = board.width - horizontalMargin,
+        verticalSize = board.height - verticalMargin,
         x, y;
 
     while (target = target.offsetParent) {
@@ -1057,8 +1063,11 @@ var getMousePos = function(e) {
         boardY += document.body.scrollTop;
     }
 
-    x = (e.pageX - boardX) / board.width;
-    y = (e.pageY - boardY) / board.height;
+    boardX += verticalMargin / 2;
+    boardY += horizontalMargin / 2;
+
+    x = (e.pageX - boardX) / horizontalSize;
+    y = (e.pageY - boardY) / verticalSize;
 
     x = Math.floor(x * this.size);
     y = Math.floor(y * this.size);
