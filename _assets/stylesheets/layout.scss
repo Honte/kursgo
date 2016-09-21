@@ -97,6 +97,25 @@ section {
   overflow: hidden;
   box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
 
+  &.event {
+    padding: 0;
+
+    a {
+      display: block;
+      padding: 0;
+    }
+
+    &:hover {
+      box-shadow: 0 0 10px 2px #ddb729;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      border: 0
+    }
+  }
+
   h3 {
     color: #222;
     font-size: 1.2em;

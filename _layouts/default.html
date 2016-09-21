@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>{% if page.title %}{{ site.title + " " + page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <title>{% if page.title %}{{ site.title | append: ' ' | append: page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{{ site.description }}">
 
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
@@ -26,6 +26,13 @@
     {% include side.html %}
 
     <article id="content">
+
+        <section class="event">
+            <a href="http://honte.pl/artykuly/naucz-sie-grac-w-go" title="Naucz się grać w Go na targach Hobby w Poznaniu">
+                <img src="{% asset_path hobby.png %}" alt="Go na targach Hobby, 22-23 października 2016">
+            </a>
+        </section>
+
         {% if page.title %}
         <section class="title">
             <h2>{{ page.title }}</h2>

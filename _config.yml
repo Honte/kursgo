@@ -14,7 +14,12 @@ pages: ./_lessons
 # default layout for lessons
 layout: default
 
+gems:
+  - jekyll-watch
+  - jekyll-assets
+
 # jekyll-assets configuration
 assets:
+  digest: true
 # js_compressor:  uglifier
   css_compressor: scss
