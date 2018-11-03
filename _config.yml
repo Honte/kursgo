@@ -2,7 +2,7 @@
 title: Interaktywny Kurs Go
 description: >
   Interaktywny kurs Go.
-url: "http://kursgo.pl" # the base hostname & protocol for your site
+url: "https://kursgo.pl" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
@@ -14,12 +14,15 @@ pages: ./_lessons
 # default layout for lessons
 layout: default
 
-gems:
-  - jekyll-watch
-  - jekyll-assets
+plugins:
+- jekyll-watch
+- jekyll-assets
 
 # jekyll-assets configuration
 assets:
   digest: true
 # js_compressor:  uglifier
   css_compressor: scss
+  sources:
+  - _assets/stylesheets
+  - _assets/javascripts
