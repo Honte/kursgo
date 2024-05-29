@@ -12,7 +12,8 @@ if [[ ! -e _config.yml ]]; then
 fi
 
 # build
-jekyll build || exit 2
+bundle install --deployment
+bundle exec jekyll build || exit 2
 
 # copy
 rsync -a --delete-delay _site/ $1
