@@ -4,25 +4,24 @@ Jest to odnowiona wersja kursu Go, który przez wiele lat dostępny był na [go.
 
 Nowa wersja kursu ma na celu zwiększenie dostępności oraz wzbogacenie kursu o nowe lekcje i materiały.
  
-### Instalacja
+### Rozwój kursu
 
 Kurs napisany jest z wykorzystaniem generatora statycznych stron internetowych - [Jekyll](https://jekyllrb.com/). 
  
-W pierwszym kroku należy zainstalować interpreter języka *Ruby* i bibliotekę *Jekyll* - najlepiej przechodząć kroki opisane [tutaj](https://jekyllrb.com/docs/installation/).
+W pierwszym kroku należy zainstalować interpreter języka *Ruby* oraz narzędzie [bundler](https://jekyllrb.com/tutorials/using-jekyll-with-bundler/).
 
 Następnie trzeba doinstalować zależności projektu:
 ```
-gem install jekyll-watch jekyll-assets
+bundle config set --local path 'vendor/bundle'
+bundle install
 ```
   
 Uruchomienie kursu:
 ```
-jekyll serve
+bundle exec jekyll serve
 ```
 
-Przygotowanie kursu do wdrożenia:
-```
-jekyll build
-```
-  
+### Wdrożenie kursu
+
+Należy wykorzystać, lub bazować, na skrypcie `_deploy-utils/deploy.sh`.
 
