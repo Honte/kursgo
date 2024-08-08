@@ -1,9 +1,9 @@
-#! /bin/sh
+#! /bin/bash
 
-DATE="<strong>$1</strong>"
+DATE="<strong>${1/-/&ndash;}</strong>"
 LINK_START="<a href=\"$2\">"
 LINK_END="</a>"
-NAME="$3"
+NAME="${3/-/&ndash;}"
 ENTRY="\      <li class=\"tournaments-entry\">$LINK_START$DATE &mdash; $NAME$LINK_END</li>"
 
 sed -i -e '/<ul class="tournaments-list">/a '"$ENTRY" _includes/tournaments.html
